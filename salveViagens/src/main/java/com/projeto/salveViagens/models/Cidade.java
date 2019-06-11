@@ -11,7 +11,7 @@ public class Cidade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String nomeCidade;
+	private String nome;
 	@ManyToOne
 	private Estado estado;
 	public long getId() {
@@ -20,11 +20,11 @@ public class Cidade {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getNomeCidade() {
-		return nomeCidade;
+	public String getNome() {
+		return nome;
 	}
-	public void setNomeCidade(String nomeCidade) {
-		this.nomeCidade = nomeCidade;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public Estado getEstado() {
 		return estado;
@@ -34,3 +34,4 @@ public class Cidade {
 	}
 	
 }
+	

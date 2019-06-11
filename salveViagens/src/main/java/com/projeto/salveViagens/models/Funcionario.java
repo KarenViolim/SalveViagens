@@ -11,23 +11,23 @@ import javax.persistence.Id;
 public class Funcionario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idFuncionario;
-	private String nomeFuncionario;
+	private long id;
+	private String nome;
 	private String telefone;
 	private Double salario;
 	private Date dataInicio;
 	private String cargo;
-	public long getIdFuncionario() {
-		return idFuncionario;
+	public long getId() {
+		return id;
 	}
-	public void setIdFuncionario(long idFuncionario) {
-		this.idFuncionario = idFuncionario;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public String getNomeFuncionario() {
-		return nomeFuncionario;
+	public String getNome() {
+		return nome;
 	}
-	public void setNomeFuncionario(String nomeFuncionario) {
-		this.nomeFuncionario = nomeFuncionario;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public String getTelefone() {
 		return telefone;
@@ -53,5 +53,7 @@ public class Funcionario {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
+
+	
 	
 }

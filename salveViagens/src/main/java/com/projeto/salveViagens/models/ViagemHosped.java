@@ -12,18 +12,18 @@ import javax.persistence.ManyToOne;
 public class ViagemHosped {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long idViagemHosped;
+	private long id;
 	@ManyToOne
 	private Viagem viagem;
 	@ManyToOne
-	private Hospedagem hospede;
+	private Hospedagem hospedagem;
 	private Date dataCheckIn;
 	private Date dataCheckOut;
-	public long getIdViagemHosped() {
-		return idViagemHosped;
+	public long getId() {
+		return id;
 	}
-	public void setIdViagemHosped(long idViagemHosped) {
-		this.idViagemHosped = idViagemHosped;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public Viagem getViagem() {
 		return viagem;
@@ -31,11 +31,11 @@ public class ViagemHosped {
 	public void setViagem(Viagem viagem) {
 		this.viagem = viagem;
 	}
-	public Hospedagem getHospede() {
-		return hospede;
+	public Hospedagem getHospedagem() {
+		return hospedagem;
 	}
-	public void setHospede(Hospedagem hospede) {
-		this.hospede = hospede;
+	public void setHospedagem(Hospedagem hospedagem) {
+		this.hospedagem = hospedagem;
 	}
 	public Date getDataCheckIn() {
 		return dataCheckIn;
@@ -49,6 +49,7 @@ public class ViagemHosped {
 	public void setDataCheckOut(Date dataCheckOut) {
 		this.dataCheckOut = dataCheckOut;
 	}
+	
 	
 
 }

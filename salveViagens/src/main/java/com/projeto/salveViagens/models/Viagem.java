@@ -14,28 +14,30 @@ import javax.persistence.ManyToOne;
 public class Viagem { 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idViagem;
-	private Integer quantPessoas;
+	private long id;
+	private Integer TotalPassageiros;
 	private Double comissao;
-	private Double valorTotal;
-	private Date dataViagem;
+	private Double Total;
+	private Date data;
 	@ManyToOne
 	private Funcionario funcionario;
 	@ManyToOne
 	private FormaDePagamento formaPagamento;
 	@ManyToMany
-	private List<Cliente> clientes;
-	public long getIdViagem() {
-		return idViagem;
+	private Cliente cliente;
+	
+	
+	public long getId() {
+		return id;
 	}
-	public void setIdViagem(long idViagem) {
-		this.idViagem = idViagem;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public Integer getQuantPessoas() {
-		return quantPessoas;
+	public Integer getTotalPassageiros() {
+		return TotalPassageiros;
 	}
-	public void setQuantPessoas(Integer quantPessoas) {
-		this.quantPessoas = quantPessoas;
+	public void setTotalPassageiros(Integer totalPassageiros) {
+		TotalPassageiros = totalPassageiros;
 	}
 	public Double getComissao() {
 		return comissao;
@@ -43,17 +45,17 @@ public class Viagem {
 	public void setComissao(Double comissao) {
 		this.comissao = comissao;
 	}
-	public Double getValorTotal() {
-		return valorTotal;
+	public Double getTotal() {
+		return Total;
 	}
-	public void setValorTotal(Double valorTotal) {
-		this.valorTotal = valorTotal;
+	public void setTotal(Double total) {
+		Total = total;
 	}
-	public Date getDataViagem() {
-		return dataViagem;
+	public Date getData() {
+		return data;
 	}
-	public void setDataViagem(Date dataViagem) {
-		this.dataViagem = dataViagem;
+	public void setData(Date data) {
+		this.data = data;
 	}
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -67,11 +69,14 @@ public class Viagem {
 	public void setFormaPagamento(FormaDePagamento formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
-	public List<Cliente> getClientes() {
-		return clientes;
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
+	
+	
+
 	
 }

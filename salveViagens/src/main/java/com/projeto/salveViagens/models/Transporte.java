@@ -11,15 +11,15 @@ import javax.persistence.Id;
 public class Transporte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idTransporte;
+	private long id;
 	private String valorTransporte;
 	private Date dataPartida;
-	private String nomeTransporte;
-	public long getIdTransporte() {
-		return idTransporte;
+	private String nome;
+	public long getId() {
+		return id;
 	}
-	public void setIdTransporte(long idTransporte) {
-		this.idTransporte = idTransporte;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getValorTransporte() {
 		return valorTransporte;
@@ -33,11 +33,11 @@ public class Transporte {
 	public void setDataPartida(Date dataPartida) {
 		this.dataPartida = dataPartida;
 	}
-	public String getNomeTransporte() {
-		return nomeTransporte;
+	public String getNome() {
+		return nome;
 	}
-	public void setNomeTransporte(String nomeTransporte) {
-		this.nomeTransporte = nomeTransporte;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }

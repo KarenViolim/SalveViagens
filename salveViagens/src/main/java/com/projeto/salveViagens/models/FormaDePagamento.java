@@ -10,15 +10,15 @@ import javax.persistence.ManyToOne;
 public class FormaDePagamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idFormaPagamento;
+	private long id;
 	private String formaPagamento;
 	@ManyToOne
 	private Cliente cliente;
 	public long getIdFormaPagamento() {
-		return idFormaPagamento;
+		return id;
 	}
-	public void setIdFormaPagamento(long idFormaPagamento) {
-		this.idFormaPagamento = idFormaPagamento;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getFormaPagamento() {
 		return formaPagamento;

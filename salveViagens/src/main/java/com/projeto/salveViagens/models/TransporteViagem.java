@@ -10,32 +10,32 @@ import javax.persistence.ManyToOne;
 public class TransporteViagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idTranporteViagem;
+	private long id;
 	@ManyToOne
-	private Viagem idViagem;
+	private Viagem idviagem;
 	@ManyToOne
-	private TransporteViagem idTransporte;
+	private TransporteViagem idtransporte;
 	@ManyToOne
 	private Cidade origem;
 	@ManyToOne
 	private Cidade destino;
-	public long getIdTranporteViagem() {
-		return idTranporteViagem;
+	public long getId() {
+		return id;
 	}
-	public void setIdTranporteViagem(long idTranporteViagem) {
-		this.idTranporteViagem = idTranporteViagem;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public Viagem getIdViagem() {
-		return idViagem;
+	public Viagem getIdviagem() {
+		return idviagem;
 	}
-	public void setIdViagem(Viagem idViagem) {
-		this.idViagem = idViagem;
+	public void setIdviagem(Viagem idviagem) {
+		this.idviagem = idviagem;
 	}
-	public TransporteViagem getIdTransporte() {
-		return idTransporte;
+	public TransporteViagem getIdtransporte() {
+		return idtransporte;
 	}
-	public void setIdTransporte(TransporteViagem idTransporte) {
-		this.idTransporte = idTransporte;
+	public void setIdtransporte(TransporteViagem idtransporte) {
+		this.idtransporte = idtransporte;
 	}
 	public Cidade getOrigem() {
 		return origem;
@@ -49,5 +49,8 @@ public class TransporteViagem {
 	public void setDestino(Cidade destino) {
 		this.destino = destino;
 	}
+	
+	
+	
 	
 }

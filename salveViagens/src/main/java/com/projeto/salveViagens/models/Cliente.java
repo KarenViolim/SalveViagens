@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idCliente;
+	private long id;
 	private String nome;
 	private String endereco;
 	private String cpf;
@@ -21,10 +21,10 @@ public class Cliente {
 	@ManyToOne
 	private Cidade cidade;
 	public long getIdCliente() {
-		return idCliente;
+		return id;
 	}
-	public void setIdCliente(long idCliente) {
-		this.idCliente = idCliente;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;

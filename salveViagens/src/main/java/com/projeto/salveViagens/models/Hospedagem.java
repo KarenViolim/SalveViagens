@@ -10,17 +10,18 @@ import javax.persistence.ManyToOne;
 public class Hospedagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idHospedagem;
+	private long id;
 	private String nomeHopedagem;
-	private Double valorTotalHopedagem;
+	private Double valorTotal;
 	private Double valorDiaria;
 	@ManyToOne
 	private Cidade cidade;
-	public long getIdHospedagem() {
-		return idHospedagem;
+
+	public long getId() {
+		return id;
 	}
-	public void setIdHospedagem(long idHospedagem) {
-		this.idHospedagem = idHospedagem;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getNomeHopedagem() {
 		return nomeHopedagem;
@@ -28,11 +29,11 @@ public class Hospedagem {
 	public void setNomeHopedagem(String nomeHopedagem) {
 		this.nomeHopedagem = nomeHopedagem;
 	}
-	public Double getValorTotalHopedagem() {
-		return valorTotalHopedagem;
+	public Double getValorTotal() {
+		return valorTotal;
 	}
-	public void setValorTotalHopedagem(Double valorTotalHopedagem) {
-		this.valorTotalHopedagem = valorTotalHopedagem;
+	public void setValorTotal(Double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 	public Double getValorDiaria() {
 		return valorDiaria;
@@ -46,5 +47,4 @@ public class Hospedagem {
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
-	
 }
