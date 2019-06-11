@@ -1,5 +1,6 @@
 package com.projeto.salveViagens.models;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
@@ -11,9 +12,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Viagem { 
+public class Viagem implements Serializable {
+
+	private static final long serialVersionUID = 1L; 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private Integer TotalPassageiros;
 	private Double comissao;
