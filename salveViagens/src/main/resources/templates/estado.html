@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" >
+<title>Listar Estados</title>
+</head>
+<body>
+ <table>
+ 	<tr>
+ 		<th>ID</th>
+ 		<th>Nome</th>
+ 		<th>Sigla</th>
+ 		<th></th>
+ 	</tr>
+ 		<tr th:each="estado : ${estado}">
+ 			<td th:text="${estado.id}"></td>
+ 			<td th:text="${estado.nome}"></td>
+ 			<td th:text="${estado.sigla}"></td>
+ 			<td>
+ 			<a th:href="@{/remover/{id}(id=${estado.id})}">Remover</a>
+ 			<a th:href="@{/editar/{id}(id=${estado.id})}">Editar.</a>
+ 			</td>
+ 		</tr>
+ </table>
+ <a href="/add/estado">Adicionar</a>
+</body>
+</html>
