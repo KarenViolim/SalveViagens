@@ -24,11 +24,15 @@ public class EstadoController {
 		return mv;
 	}
 	
-	@PostMapping("/adcionarEstado")
+	@GetMapping("/adcionarEstado")
 	public ModelAndView add(Estado estado) {
 		ModelAndView mv = new ModelAndView("/addestado");
 		mv.addObject("estado", estado);
 		return mv;
+	}
+	@PostMapping("/salvarEstado")
+	public ModelAndView salvar() {
+		return lista();
 	}
 
 }
