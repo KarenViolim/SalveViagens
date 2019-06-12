@@ -4,23 +4,47 @@
 <head>
 <meta charset="UTF-8" >
 <title>Listar Forma de Pagamento</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 </head>
 <body>
- <table>
- 	<tr>
- 		<th>ID</th>
- 		<th>Forma de Pagamento</th>
- 		<th></th>
- 	</tr>
- 		<tr th:each="formadepagamento : ${formadepagamento}">
- 			<td th:text="${formadepagamento.id}"></td>
- 			<td th:text="${formadepagamento.formaPagamento}"></td>
- 			<td>
- 			<a th:href="@{/removerFormaPagamento/{id}(id=${formadepagamento.id})}">Remover</a>
- 			<a th:href="@{/editarFormaPagamento/{id}(id=${formadepagamento.id})}">Editar.</a>
- 			</td>
- 		</tr>
- </table>
- <a href="/adicionarFormaPagamento">Adicionar</a>
+<div id="main" class="container-fluid">
+ <h3 class="page-header">Template Inicial</h3>
+</div>
+<div id="list" class="row">
+ 
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+		 	<thead>
+		 		<tr>
+		 			<th>ID</th>
+		 			<th>Forma de Pagamento</th>
+		 			<th></th>
+		 		</tr>
+		 	</thead>
+		 	<tbody>
+		 		<tr th:each="formadepagamento : ${formadepagamento}">
+		 			<td th:text="${formadepagamento.id}"></td>
+		 			<td th:text="${formadepagamento.formaPagamento}"></td>
+		 			<td>
+		 			<a class="btn btn-warning btn-xs" th:href="@{/editarFormaPagamento/{id}(id=${formadepagamento.id})}">Editar</a>
+		 			<a class="btn btn-danger btn-xs" th:href="@{/removerFormaPagamento/{id}(id=${formadepagamento.id})}">Remover</a>
+		 			</td>
+		 		</tr>
+		 	</tbody>
+		 </table>
+	</div>
+</div>
+<div class="form-group">
+	<div class="col-md-2">
+ 		<a class="form-control input-md btn btn-primary" href="/adicionarFormaPagamento">Adicionar</a>
+ 	</div>
+ </div>
+ 		
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 </body>
 </html>

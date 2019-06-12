@@ -4,21 +4,46 @@
 <head>
 <meta charset="UTF-8" />
 <title>Cadastro Forma de Pagamento</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	<p> Cadastrar Forma de Pagamento </p>
-	<form th:action="@{/salvarFormaDePagamento}" method="Post" th:object="${formadepagamento}">
+	<form class="form-horizontal" th:action="@{/salvarFormaPagamento}" method="Post" th:object="${formadepagamento}">
 		<div th:if="${#fields.hasAnyErrors()}">
 		<div th:each="detailedError : ${#fields.detailedErrors()}">
 			<span th:text="${detailedError.message}"></span>
 		</div>
 		</div>
-
-		<label>ID</label> 
-		<input th:field="*{id}" readOnly="readonly" type="text" /> 
-		<label>Forma de Pagamento </label> 
-		<input th:field="*{formaPagamento}" type="text" /> 
-		<input type="submit" value="Salvar" />
+		<fieldset>
+		<div class="panel panel-primary">
+   			<div class="panel-heading">Cadastrar Forma de Pagamento</div>
+    		<div class="panel-body">
+		<div class="form-group">
+		<div class="col-md-11 control-label">
+        	<p class="help-block"><h11>*</h11>Campo Obrigatório </p>
+		</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">ID</label> 
+			<div class="col-md-8">
+			<input th:field="*{id}" readOnly="readonly" class="form-control input-md" type="text" /> 
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Forma de Pagamento </label> 
+			<div class="col-md-8">
+			<input th:field="*{formaPagamento}" class="form-control input-md" type="text" /> 
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-2">
+			<button type="submit" class="form-control input-md btn btn-primary" value="Salvar">Salvar</button>
+			</div>
+		</div>
+		</div>
+		</div>
+	</fieldset>
 	</form>
 </body>
 </html>
