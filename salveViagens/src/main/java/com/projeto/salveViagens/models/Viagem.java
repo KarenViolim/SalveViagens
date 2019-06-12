@@ -26,7 +26,7 @@ public class Viagem implements Serializable {
 	private Funcionario funcionario;
 	@ManyToOne
 	private FormaDePagamento formaPagamento;
-	@ManyToMany
+	@ManyToOne
 	private Cliente cliente;
 	
 	
