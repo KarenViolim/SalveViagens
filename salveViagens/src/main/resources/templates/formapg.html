@@ -16,8 +16,8 @@
  			<td th:text="${formadepagamento.id}"></td>
  			<td th:text="${formadepagamento.formaPagamento}"></td>
  			<td>
- 			<a th:href="@{/removerFormaPagamento/{id}(id=${estado.id})}">Remover</a>
- 			<a th:href="@{/editarFormaPagamento/{id}(id=${estado.id})}">Editar.</a>
+ 			<a th:href="@{/removerFormaPagamento/{id}(id=${formadepagamento.id})}">Remover</a>
+ 			<a th:href="@{/editarFormaPagamento/{id}(id=${formadepagamento.id})}">Editar.</a>
  			</td>
  		</tr>
  </table>

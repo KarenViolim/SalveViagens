@@ -50,7 +50,7 @@ public class FormaDePagamentoController {
 		return lista();
 		
 	}
-	@PostMapping("/salvarFormaPagamento")
+	@PostMapping("/salvarFormaDePagamento")
 	public ModelAndView salvar(@Valid FormaDePagamento formadepagamento, BindingResult result ) {
 		if(result.hasErrors()) {
 			

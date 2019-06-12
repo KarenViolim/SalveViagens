@@ -28,4 +28,7 @@ public class FormaDePagamento implements Serializable {
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

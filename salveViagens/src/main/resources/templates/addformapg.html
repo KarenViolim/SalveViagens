@@ -3,10 +3,11 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>Cadastro Do Estado</title>
+<title>Cadastro Forma de Pagamento</title>
 </head>
 <body>
-	<form th:action="@{/salvarFormaPagamento}" method="Post" th:object="${formadepagamento}">
+	<p> Cadastrar Forma de Pagamento </p>
+	<form th:action="@{/salvarFormaDePagamento}" method="Post" th:object="${formadepagamento}">
 		<div th:if="${#fields.hasAnyErrors()}">
 		<div th:each="detailedError : ${#fields.detailedErrors()}">
 			<span th:text="${detailedError.message}"></span>
@@ -16,8 +17,7 @@
 		<label>ID</label> 
 		<input th:field="*{id}" readOnly="readonly" type="text" /> 
 		<label>Forma de Pagamento </label> 
-		<input th:field="*{formaPagamento}" type="text"
-			th:classappend="${#fields.hasErrors('formaPagamento')}? 'has-error'" /> 
+		<input th:field="*{formaPagamento}" type="text" /> 
 		<input type="submit" value="Salvar" />
 	</form>
 </body>
