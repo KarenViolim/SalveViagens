@@ -14,7 +14,7 @@ public class Estado implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	private String nome;
+	private String nomes;
 	private String sigla;
 	public long getId() {
 		return id;
@@ -23,10 +23,10 @@ public class Estado implements Serializable {
 		this.id = id;
 	}
 	public String getNome() {
-		return nome;
+		return nomes;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomes = nome;
 	}
 	public String getSigla() {
 		return sigla;
