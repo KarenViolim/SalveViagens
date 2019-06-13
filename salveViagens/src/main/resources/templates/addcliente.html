@@ -3,13 +3,13 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>Cadastro Cidade</title>
+<title>Cadastro Cliente</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	<form class="form-horizontal" th:action="@{/salvarCidade}" method="Post" th:object="${cidade}">
+	<form class="form-horizontal" th:action="@{/salvarCliente}" method="Post" th:object="${cliente}">
 		<div th:if="${#fields.hasAnyErrors()}">
 		<div th:each="detailedError : ${#fields.detailedErrors()}">
 			<span th:text="${detailedError.message}"></span>
@@ -17,7 +17,7 @@
 		</div>
 		<fieldset>
 		<div class="panel panel-primary">
-   			<div class="panel-heading">Cadastrar Cidades</div>
+   			<div class="panel-heading">Cadastrar Cliente</div>
     		<div class="panel-body">
 		<div class="form-group">
 		<div class="col-md-11 control-label">
@@ -37,12 +37,36 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Estado</label> 
+			<label class="col-md-2 control-label">Endereço</label> 
 			<div class="col-md-8">
-			<select th:field="*{estado}" class="form-control">
-				<option value="0">Selecione um Estado</option>
-				<option th:each="est: ${estados}"
-					th:value="${est.id}" th:text="${est.nome}"></option>
+			<input th:field="*{endereco}" class="form-control input-md" type="text" /> 
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">CPF</label> 
+			<div class="col-md-8">
+			<input th:field="*{cpf}" class="form-control input-md" type="text" /> 
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Data de Nascimento</label> 
+			<div class="col-md-8">
+			<input th:field="*{dtAniversario}" class="form-control input-md" type="date" /> 
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Telefone</label> 
+			<div class="col-md-8">
+			<input th:field="*{telefone}" class="form-control input-md" type="text" /> 
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Cidade</label> 
+			<div class="col-md-8">
+			<select th:field="*{cidade}" class="form-control">
+				<option value="0">Selecione uma Cidade</option>
+				<option th:each="cidade: ${cidades}"
+					th:value="${cidade.id}" th:text="${cidade.nome}"></option>
 			</select>
 			</div>
 		</div>

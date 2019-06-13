@@ -23,7 +23,7 @@ public class Cliente extends Pessoa implements Serializable {
 	private String telefone;
 	@ManyToOne
 	private Cidade cidade;
-	public long getIdCliente() {
+	public long getId() {
 		return id;
 	}
 	public void setId(long id) {

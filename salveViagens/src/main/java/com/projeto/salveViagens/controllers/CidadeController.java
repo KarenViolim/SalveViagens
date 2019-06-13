@@ -25,7 +25,7 @@ public class CidadeController {
 	@GetMapping("/listarCidade")
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("/cidade");
-		mv.addObject("estados", repositoryCidade.findAll());
+		mv.addObject("cidade", repositoryCidade.findAll());
 		return mv;
 	}
 	
