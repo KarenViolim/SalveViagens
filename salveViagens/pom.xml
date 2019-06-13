@@ -11,7 +11,7 @@
 	<groupId>com.projeto</groupId>
 	<artifactId>salveViagens</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>salveviagens</name>
+	<name>salveViagens</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
