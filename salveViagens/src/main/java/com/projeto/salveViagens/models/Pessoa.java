@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Cliente extends Pessoa implements Serializable {
+public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
