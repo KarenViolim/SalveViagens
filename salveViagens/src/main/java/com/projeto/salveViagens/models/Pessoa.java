@@ -17,12 +17,15 @@ public class Pessoa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nome;
-	private String endereco;
 	private String cpf;
-	private Date dtAniversario;
+	private String rg;
+	private String endereco;
+	private String numero;
 	private String telefone;
 	@ManyToOne
 	private Cidade cidade;
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -35,23 +38,29 @@ public class Pessoa implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
 	public String getCpf() {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDtAniversario() {
-		return dtAniversario;
+	public String getRg() {
+		return rg;
 	}
-	public void setDtAniversario(Date dtAniversario) {
-		this.dtAniversario = dtAniversario;
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 	public String getTelefone() {
 		return telefone;
@@ -68,4 +77,5 @@ public class Pessoa implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 }
