@@ -3,28 +3,26 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" >
-<title>Listar Processos</title>
+<title>Listar Estados</title>
 </head>
 <body>
  <table>
  	<tr>
- 		<th>Código do Processo</th>
- 		<th>Nome do Cliente</th>
- 		<th>Numero do Processo</th>
- 		<th>Nome do Advogado</th>
+ 		<th>ID</th>
+ 		<th>Nome</th>
+ 		<th>Sigla</th>
  		<th></th>
  	</tr>
- 		<tr th:each="processos : ${processos}">
- 			<td th:text="${processos.id}"></td>
- 			<td th:text="${processos.cliente}"></td>
- 			<td th:text="${processos.numprocesso}"></td>
- 			<td th:text="${processos.advogado}" ></td>
+ 		<tr th:each="estado : ${estado}">
+ 			<td th:text="${estado.id}"></td>
+ 			<td th:text="${estado.nome}"></td>
+ 			<td th:text="${estado.sigla}"></td>
  			<td>
- 			<a th:href="@{/remover/{id}(id=${processos.id})}">Remover</a>
- 			<a th:href="@{/editar/{id}(id=${processos.id})}">Editar</a>
+ 			<a th:href="@{/remover/{id}(id=${estado.id})}">Remover</a>
+ 			<a th:href="@{/editar/{id}(id=${estado.id})}">Editar</a>
  			</td>
  		</tr>
  </table>
- <a href="/add/processo">Adicionar</a>
+ <a href="/add/estado">Adicionar</a>
 </body>
 </html>
