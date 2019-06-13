@@ -6,7 +6,7 @@
 <title>Cadastro Do Estado</title>
 </head>
 <body>
-	<form th:action="@{/salvar}" method="Post" th:object="${estado}">
+	<form th:action="@{/salvarEstado}" method="Post" th:object="${estado}">
 		<div th:if="${#fields.hasAnyErrors()}">
 		<div th:each="detailedError : ${#fields.detailedErrors()}">
 			<span th:text="${detailedError.message}"></span>
@@ -16,10 +16,10 @@
 		<label>Código do Estado</label> 
 		<input th:field="*{id}" readOnly="readonly" type="text" /> 
 		<label>Nome do Estado: </label> 
-		<input th:field="*{estado}" type="text"
-			th:classappend="${#fields.hasErrors('estado')}? 'has-error'" /> 
+		<input th:field="*{nome}" type="text"
+			th:classappend="${#fields.hasErrors('nome')}? 'has-error'" /> 
 		<label>Sigla do Estado: </label>
-		<input th:field="*{estado}" type="text" /> 
+		<input th:field="*{sigla}" type="text" /> 
 		<input type="submit" value="Salvar" />
 	</form>
 </body>

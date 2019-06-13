@@ -29,20 +29,20 @@ public class EstadoController {
 		return mv;
 	}
 	
-	@GetMapping("/adcionarEstado")
+	@GetMapping("/adicionarEstado")
 	public ModelAndView add(Estado estado) {
 		ModelAndView mv = new ModelAndView("/addestado");
 		mv.addObject("estado", estado);
 		return mv;
 	}
-	@GetMapping("/editarProd/{id}")
+	@GetMapping("/editarEstado/{id}")
 	public ModelAndView editar(@PathVariable("id") Long id){
 		Optional<Estado> estado = repository.findById(id);
 		Estado e = estado.get();
 		return add(e);
 		
 	}
-	@GetMapping("/removerProd/{id}")
+	@GetMapping("/removerEstado/{id}")
 	public ModelAndView remover(@PathVariable("id") Long id){
 		Optional<Estado> estado = repository.findById(id);
 		Estado e = estado.get();

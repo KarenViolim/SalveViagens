@@ -18,11 +18,11 @@
  			<td th:text="${estado.nome}"></td>
  			<td th:text="${estado.sigla}"></td>
  			<td>
- 			<a th:href="@{/remover/{id}(id=${estado.id})}">Remover</a>
- 			<a th:href="@{/editar/{id}(id=${estado.id})}">Editar.</a>
+ 			<a th:href="@{/removerEstado/{id}(id=${estado.id})}">Remover</a>
+ 			<a th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar.</a>
  			</td>
  		</tr>
  </table>
- <a href="/add/estado">Adicionar</a>
+ <a href="/adicionarEstado">Adicionar</a>
 </body>
 </html>
