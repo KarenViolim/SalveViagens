@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" >
+<title>Listar Processos</title>
+</head>
+<body>
+ <table>
+ 	<tr>
+ 		<th>Código do Processo</th>
+ 		<th>Nome do Cliente</th>
+ 		<th>Numero do Processo</th>
+ 		<th>Nome do Advogado</th>
+ 		<th></th>
+ 	</tr>
+ 		<tr th:each="processos : ${processos}">
+ 			<td th:text="${processos.id}"></td>
+ 			<td th:text="${processos.cliente}"></td>
+ 			<td th:text="${processos.numprocesso}"></td>
+ 			<td th:text="${processos.advogado}" ></td>
+ 			<td>
+ 			<a th:href="@{/remover/{id}(id=${processos.id})}">Remover</a>
+ 			<a th:href="@{/editar/{id}(id=${processos.id})}">Editar</a>
+ 			</td>
+ 		</tr>
+ </table>
+ <a href="/add/processo">Adicionar</a>
+</body>
+</html>
