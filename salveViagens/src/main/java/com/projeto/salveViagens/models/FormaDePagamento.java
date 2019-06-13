@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class FormaDePagamento implements Serializable {
@@ -16,8 +15,7 @@ public class FormaDePagamento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String formaPagamento;
-	@ManyToOne
-	private Cliente cliente;
+
 	public long getIdFormaPagamento() {
 		return id;
 	}
@@ -30,11 +28,4 @@ public class FormaDePagamento implements Serializable {
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
 }
