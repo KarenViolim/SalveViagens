@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Cadastro Do Estado</title>
+</head>
+<body>
+	<form th:action="@{/salvarFormaPagamento}" method="Post" th:object="${formadepagamento}">
+		<div th:if="${#fields.hasAnyErrors()}">
+		<div th:each="detailedError : ${#fields.detailedErrors()}">
+			<span th:text="${detailedError.message}"></span>
+		</div>
+		</div>
+
+		<label>ID</label> 
+		<input th:field="*{id}" readOnly="readonly" type="text" /> 
+		<label>Forma de Pagamento </label> 
+		<input th:field="*{formaPagamento}" type="text"
+			th:classappend="${#fields.hasErrors('formaPagamento')}? 'has-error'" /> 
+		<input type="submit" value="Salvar" />
+	</form>
+</body>
+</html>

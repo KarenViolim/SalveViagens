@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" >
+<title>Listar Forma de Pagamento</title>
+</head>
+<body>
+ <table>
+ 	<tr>
+ 		<th>ID</th>
+ 		<th>Forma de Pagamento</th>
+ 		<th></th>
+ 	</tr>
+ 		<tr th:each="formadepagamento : ${formadepagamento}">
+ 			<td th:text="${formadepagamento.id}"></td>
+ 			<td th:text="${formadepagamento.formaPagamento}"></td>
+ 			<td>
+ 			<a th:href="@{/removerFormaPagamento/{id}(id=${estado.id})}">Remover</a>
+ 			<a th:href="@{/editarFormaPagamento/{id}(id=${estado.id})}">Editar.</a>
+ 			</td>
+ 		</tr>
+ </table>
+ <a href="/adicionarFormaPagamento">Adicionar</a>
+</body>
+</html>
