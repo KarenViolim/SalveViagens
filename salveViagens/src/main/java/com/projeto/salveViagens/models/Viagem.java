@@ -76,8 +76,7 @@ public class Viagem implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	
-
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

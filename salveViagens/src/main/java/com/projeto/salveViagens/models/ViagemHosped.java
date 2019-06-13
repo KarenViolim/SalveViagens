@@ -52,7 +52,7 @@ public class ViagemHosped implements Serializable {
 	public void setDataCheckOut(Date dataCheckOut) {
 		this.dataCheckOut = dataCheckOut;
 	}
-	
-	
-
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

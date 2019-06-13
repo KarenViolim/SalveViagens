@@ -23,7 +23,7 @@ public class Pessoa implements Serializable {
 	private String telefone;
 	@ManyToOne
 	private Cidade cidade;
-	public long getIdCliente() {
+	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
@@ -65,5 +65,7 @@ public class Pessoa implements Serializable {
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

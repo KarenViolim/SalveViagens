@@ -36,6 +36,8 @@ public class Cidade implements Serializable {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }
 	

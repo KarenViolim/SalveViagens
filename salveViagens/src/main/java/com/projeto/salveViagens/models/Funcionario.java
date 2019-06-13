@@ -33,7 +33,7 @@ public class Funcionario extends Pessoa implements Serializable {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-
-	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

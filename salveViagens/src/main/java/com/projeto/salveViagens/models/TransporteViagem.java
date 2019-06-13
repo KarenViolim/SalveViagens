@@ -53,8 +53,7 @@ public class TransporteViagem implements Serializable {
 	public void setDestino(Cidade destino) {
 		this.destino = destino;
 	}
-	
-	
-	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }
