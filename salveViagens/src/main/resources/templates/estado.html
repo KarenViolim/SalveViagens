@@ -3,16 +3,26 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" >
-<title>Listar Estados</title>
+<title>Listar Cidades</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
- <table>
- 	<tr>
- 		<th>ID</th>
- 		<th>Nome</th>
- 		<th>Sigla</th>
- 		<th></th>
- 	</tr>
+<div id="main" class="container-fluid">
+ <h3 class="page-header">Listar Cidades</h3>
+</div>
+<div id="list" class="row">
+ 
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+		 	<thead>
+		 		<tr>
+		 			<th>ID</th>
+		 			<th>Nome</th>
+		 			<th>Estado</th>
+		 			<th></th>
+		 		</tr>
+		 	</thead>
  		<tr th:each="estado : ${estado}">
  			<td th:text="${estado.id}"></td>
  			<td th:text="${estado.nome}"></td>
