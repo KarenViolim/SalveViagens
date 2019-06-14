@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="main" class="container-fluid">
- <h3 class="page-header">Listar Cidades</h3>
+ <h3 class="page-header">Listar Estados</h3>
 </div>
 <div id="list" class="row">
  
@@ -19,20 +19,30 @@
 		 		<tr>
 		 			<th>ID</th>
 		 			<th>Nome</th>
-		 			<th>Estado</th>
+		 			<th>Sigla</th>
 		 			<th></th>
 		 		</tr>
 		 	</thead>
+		<tbody>
  		<tr th:each="estado : ${estado}">
  			<td th:text="${estado.id}"></td>
  			<td th:text="${estado.nome}"></td>
  			<td th:text="${estado.sigla}"></td>
  			<td>
- 			<a th:href="@{/removerEstado/{id}(id=${estado.id})}">Remover</a>
- 			<a th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar.</a>
+ 			<a class="btn btn-warning btn-xs" th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar</a>
+ 			<a class="btn btn-danger btn-xs" th:href="@{/removerEstado/{id}(id=${estado.id})}">Remover</a>
  			</td>
  		</tr>
- </table>
- <a href="/adicionarEstado">Adicionar</a>
+ 		</tbody>
+ 		</table>
+ 	</div>
+ </div>
+ <div class="form-group">
+	<div class="col-md-2">
+ 		<a class="form-control input-md btn btn-primary" href="/adicionarEstado">Adicionar</a>
+ 	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 </body>
 </html>
