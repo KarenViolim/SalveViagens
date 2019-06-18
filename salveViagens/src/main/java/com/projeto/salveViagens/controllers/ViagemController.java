@@ -13,7 +13,6 @@ import com.projeto.salveViagens.models.Viagem;
 import com.projeto.salveViagens.repository.ViagemRepository;
 
 
-
 @Controller
 
 public class ViagemController {
