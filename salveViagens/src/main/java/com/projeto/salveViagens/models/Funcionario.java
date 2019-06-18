@@ -3,7 +3,9 @@ package com.projeto.salveViagens.models;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
 
 
 @Entity
@@ -13,6 +15,8 @@ public class Funcionario extends Pessoa implements Serializable {
 
 	private Double salario;
 	private Date dataInicio;
+	@Column(nullable=false, length=50)
+	@NotEmpty(message="O Cargo é obrigatório")
 	private String cargo;
 	
 	public Double getSalario() {

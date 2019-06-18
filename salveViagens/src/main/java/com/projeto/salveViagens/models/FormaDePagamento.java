@@ -2,10 +2,12 @@ package com.projeto.salveViagens.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class FormaDePagamento implements Serializable {
@@ -14,6 +16,9 @@ public class FormaDePagamento implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@Column(nullable=false, length=70)
+	
+	@NotEmpty(message="A Forma de Pagamento é obrigatório")
 	private String formaPagamento;
 
 	public long getId() {

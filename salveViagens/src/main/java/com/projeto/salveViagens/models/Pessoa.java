@@ -2,12 +2,13 @@ package com.projeto.salveViagens.models;
 
 import java.io.Serializable;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -16,7 +17,12 @@ public class Pessoa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@Column(nullable=false, length=250)
+	@NotEmpty(message="O nome é obrigatório")
 	private String nome;
+	
+	@Column(nullable=false, length=250)
+	@NotEmpty(message="O nome é obrigatório")
 	private String cpf;
 	private String rg;
 	private String endereco;
