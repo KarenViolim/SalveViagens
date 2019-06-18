@@ -16,9 +16,9 @@ public class TransporteViagem implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@ManyToOne
-	private Viagem idviagem;
+	private Viagem viagem;
 	@ManyToOne
-	private TransporteViagem idtransporte;
+	private TransporteViagem transporte;
 	@ManyToOne
 	private Cidade origem;
 	@ManyToOne
@@ -29,17 +29,17 @@ public class TransporteViagem implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Viagem getIdviagem() {
-		return idviagem;
+	public Viagem getViagem() {
+		return viagem;
 	}
-	public void setIdviagem(Viagem idviagem) {
-		this.idviagem = idviagem;
+	public void setViagem(Viagem viagem) {
+		this.viagem = viagem;
 	}
-	public TransporteViagem getIdtransporte() {
-		return idtransporte;
+	public TransporteViagem getTransporte() {
+		return transporte;
 	}
-	public void setIdtransporte(TransporteViagem idtransporte) {
-		this.idtransporte = idtransporte;
+	public void setTransporte(TransporteViagem transporte) {
+		this.transporte = transporte;
 	}
 	public Cidade getOrigem() {
 		return origem;
@@ -56,4 +56,5 @@ public class TransporteViagem implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 }

@@ -2,11 +2,13 @@ package com.projeto.salveViagens.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Hospedagem implements Serializable {
@@ -15,6 +17,8 @@ public class Hospedagem implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@Column(nullable=false, length=50)
+	@NotEmpty(message="O Cargo é obrigatório")
 	private String nomeHopedagem;
 	private Double valorTotal;
 	private Double valorDiaria;

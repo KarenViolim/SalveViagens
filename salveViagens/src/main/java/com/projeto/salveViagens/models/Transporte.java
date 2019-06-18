@@ -3,10 +3,12 @@ package com.projeto.salveViagens.models;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Transporte implements Serializable {
@@ -17,6 +19,8 @@ public class Transporte implements Serializable {
 	private long id;
 	private String valorTransporte;
 	private Date dataPartida;
+	@Column(nullable=false, length=250)
+	@NotEmpty(message="O transporte é obrigatório")
 	private String nome;
 	public long getId() {
 		return id;
