@@ -25,13 +25,12 @@ public class Pessoa implements Serializable {
 	@NotEmpty(message="O nome é obrigatório")
 	private String cpf;
 	private String rg;
+	private String dtNascimento;
+	private String telefone;
 	private String endereco;
 	private String numero;
-	private String telefone;
 	@ManyToOne
 	private Cidade cidade;
-	
-	
 	public long getId() {
 		return id;
 	}
@@ -56,6 +55,18 @@ public class Pessoa implements Serializable {
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
+	public String getDtNascimento() {
+		return dtNascimento;
+	}
+	public void setDtNascimento(String dtNascimento) {
+		this.dtNascimento = dtNascimento;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 	public String getEndereco() {
 		return endereco;
 	}
@@ -68,12 +79,6 @@ public class Pessoa implements Serializable {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
 	public Cidade getCidade() {
 		return cidade;
 	}
@@ -83,5 +88,4 @@ public class Pessoa implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 }

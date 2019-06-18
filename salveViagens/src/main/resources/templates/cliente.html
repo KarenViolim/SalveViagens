@@ -19,10 +19,12 @@
 		 		<tr>
 		 			<th>ID</th>
 		 			<th>Nome</th>
-		 			<th>Endereço</th>
 		 			<th>CPF</th>
+		 			<th>RG</th>
 		 			<th>Data de Nascimento</th>
 		 			<th>Telefone</th>
+		 			<th>Endereço</th>
+		 			<th>Número</th>
 		 			<th>Cidade</th>
 		 			<th></th>
 		 		</tr>
@@ -31,10 +33,12 @@
 		 		<tr th:each="cliente : ${cliente}">
 		 			<td th:text="${cliente.id}"></td>
 		 			<td th:text="${cliente.nome}"></td>
-		 			<td th:text="${cliente.endereco}"></td>
 		 			<td th:text="${cliente.cpf}"></td>
-		 			<td th:text="${cliente.dtAniversario}"></td>
+		 			<td th:text="${cliente.rg}"></td>
+		 			<td th:text="${cliente.dtNascimento}"></td>
 		 			<td th:text="${cliente.telefone}"></td>
+		 			<td th:text="${cliente.endereco}"></td>
+		 			<td th:text="${cliente.numero}"></td>
 		 			<td th:text="${cliente.cidade.nome}"></td>
 		 			<td>
 		 			<a class="btn btn-warning btn-xs" th:href="@{/editarCliente/{id}(id=${cliente.id})}">Editar</a>
