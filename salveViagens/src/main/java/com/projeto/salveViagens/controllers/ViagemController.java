@@ -15,6 +15,7 @@ import com.projeto.salveViagens.repository.ViagemRepository;
 
 
 @Controller
+
 public class ViagemController {
 	@Autowired
 	private ViagemRepository repositoryViagem;
