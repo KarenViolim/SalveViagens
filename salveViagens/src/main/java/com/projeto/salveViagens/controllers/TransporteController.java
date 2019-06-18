@@ -21,15 +21,15 @@ public class TransporteController {
 	@Autowired
 	private TransporteRepository repository;
 	
-	@GetMapping("/adcionarTransporte")
+	@GetMapping("/adicionarTransporte")
 	public ModelAndView add(Transporte transporte) {
-		ModelAndView mv = new ModelAndView("/addTransporte");
+		ModelAndView mv = new ModelAndView("/addtransporte");
 		mv.addObject("transporte",transporte);
 		return mv;
 	}
-	@GetMapping("/listaTransporte")
+	@GetMapping("/listarTransporte")
 	public ModelAndView lista() {
-		ModelAndView mv = new ModelAndView("/listaTransporte");
+		ModelAndView mv = new ModelAndView("/transporte");
 		List<Transporte> transporte = repository.findAll();
 		mv.addObject("transporte", transporte);
 		return mv;
