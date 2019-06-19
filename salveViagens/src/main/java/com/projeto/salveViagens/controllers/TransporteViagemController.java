@@ -40,6 +40,4 @@ public class TransporteViagemController {
 		mv.addObject("transporteViagem", repository.findAll());
 		return mv;
 	}
-	
-
 }
