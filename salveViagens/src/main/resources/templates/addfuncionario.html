@@ -3,13 +3,13 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>Cadastro Cliente</title>
+<title>Cadastro Funcionario</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	<form class="form-horizontal" th:action="@{/salvarCliente}" method="Post" th:object="${cliente}">
+	<form class="form-horizontal" th:action="@{/salvarFuncionario}" method="Post" th:object="${funcionario}">
 		<div th:if="${#fields.hasAnyErrors()}">
 		<div th:each="detailedError : ${#fields.detailedErrors()}">
 			<span th:text="${detailedError.message}"></span>
@@ -17,7 +17,7 @@
 		</div>
 		<fieldset>
 		<div class="panel panel-primary">
-   			<div class="panel-heading">Cadastrar Cliente</div>
+   			<div class="panel-heading">Cadastrar Funcionario</div>
     		<div class="panel-body">
 		<div class="form-group">
 		<div class="col-md-11 control-label">
@@ -43,13 +43,13 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">RG</label> 
+			<label class="col-md-2 control-label">rg</label> 
 			<div class="col-md-8">
 			<input th:field="*{rg}" class="form-control input-md" type="text" /> 
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-2 control-label">Data de Nascimento</label> 
+			<label class="col-md-2 control-label">Data De Nascimento</label> 
 			<div class="col-md-8">
 			<input th:field="*{dtNascimento}" class="form-control input-md" type="date" /> 
 			</div>
@@ -82,6 +82,21 @@
 			</select>
 			</div>
 		</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Salario</label> 
+			<div class="col-md-8">
+			<input th:field="*{salario}" class="form-control input-md" type="text" /> 
+			</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Data De Inicio</label> 
+			<div class="col-md-8">
+			<input th:field="*{dataInicio}" class="form-control input-md" type="date" /> 
+			</div>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Cargo</label> 
+			<div class="col-md-8">
+			<input th:field="*{cargo}" class="form-control input-md" type="text" /> 
+			</div>	
 		<div class="form-group">
 			<div class="col-md-2">
 			<button type="submit" class="form-control input-md btn btn-primary" value="Salvar">Salvar</button>
