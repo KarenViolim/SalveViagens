@@ -30,7 +30,7 @@ public class FuncionarioController {
 	public ModelAndView add(Funcionario funcionario) {
 		ModelAndView mv = new ModelAndView("/addfuncionario");
 		mv.addObject("funcionario", funcionario);
-		mv.addObject("funcionario", repositoryFuncionario.findAll());
+		mv.addObject("cidades", repositoryCidade.findAll());
 		return mv;
 	}
 	
