@@ -29,6 +29,14 @@ public class EstadoController {
 		return mv;
 	}
 	
+	@PostMapping("/buscarEstado")
+	public ModelAndView pesquisar(String pesquisa) {
+		ModelAndView mv = new ModelAndView("/estado");
+		List<Estado> estado = repository.buscarPorNome(pesquisa);
+		mv.addObject("estado", estado);
+		return mv;
+	}
+	
 	@GetMapping("/adicionarEstado")
 	public ModelAndView add(Estado estado) {
 		ModelAndView mv = new ModelAndView("/addestado");
