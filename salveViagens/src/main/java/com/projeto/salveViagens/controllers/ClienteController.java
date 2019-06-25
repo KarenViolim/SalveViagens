@@ -19,7 +19,6 @@ public class ClienteController {
 	private ClienteRepository repositoryCliente;
 	
 	@Autowired
-	
 	public CidadeRepository repositoryCidade;
 	
 	@GetMapping("/listarCliente")
