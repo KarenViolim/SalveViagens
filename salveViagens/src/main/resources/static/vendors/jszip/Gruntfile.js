@@ -1,12 +1,12 @@
 /*jshint node: true */
-'use strict';
 module.exports = function(grunt) {
-  // see https://saucelabs.com/rest/v1/info/browsers/webdriver
   var browsers = [{
       browserName: "iphone",
-      version: "7.0"
+      platform: "OS X 10.8",
+      version: "6"
   }, {
       browserName: "iphone",
+      platform: "OS X 10.10",
       version: "9.2"
   }, {
       browserName: "android",
@@ -29,10 +29,6 @@ module.exports = function(grunt) {
   }, {
       browserName: "internet explorer",
       platform: "XP",
-      version: "6"
-  }, {
-      browserName: "internet explorer",
-      platform: "XP",
       version: "7"
   }, {
       browserName: "internet explorer",
@@ -51,9 +47,9 @@ module.exports = function(grunt) {
       platform: "Windows 10",
       version: "11"
   }, {
-      browserName: "MicrosoftEdge",
+      browserName: "microsoftedge",
       platform: "Windows 10",
-      version: "13"
+      version: "13.10586"
   }, {
       browserName: "opera",
       platform: "Windows 2008",
@@ -83,8 +79,6 @@ module.exports = function(grunt) {
     tags.push(process.env.TRAVIS_BRANCH);
   }
 
-  var version = require("./package.json").version;
-
   grunt.initConfig({
       connect: {
           server: {
@@ -97,10 +91,10 @@ module.exports = function(grunt) {
       'saucelabs-qunit': {
           all: {
               options: {
-                  urls: ["http://127.0.0.1:9999/test/index.html?hidepassed"],
+                  urls: ["http://127.0.0.1:9999/test/index.html"],
+                  tunnelTimeout: 5,
                   build: process.env.TRAVIS_JOB_ID,
-                  throttled: 3,
-                  "max-duration" : 600, // seconds, IE6 is slow
+                  concurrency: 3,
                   browsers: browsers,
                   testname: "qunit tests",
                   tags: tags
@@ -108,24 +102,11 @@ module.exports = function(grunt) {
           }
       },
       jshint: {
-          // see https://github.com/gruntjs/grunt-contrib-jshint/issues/198
-          // we can't override the options using the jshintrc path
-          options: grunt.file.readJSON('.jshintrc'),
-          production: ['./lib/**/*.js'],
-          test: ['./test/helpers/**/*.js', './test/asserts/**/*.js'],
-          documentation: {
-              options: {
-                  // we include js files with jekyll, jshint can't see all
-                  // variables and we can't declare all of them
-                  undef: false,
-                  // 'implied' still give false positives in our case
-                  strict: false
-              },
-              files: {
-                  src: ['./documentation/**/*.js']
-              }
-          }
-      },
+            options: {
+                jshintrc: "./.jshintrc"
+            },
+            all: ['./lib/*.js']
+        },
     browserify: {
       all: {
         files: {
@@ -134,32 +115,34 @@ module.exports = function(grunt) {
         options: {
           browserifyOptions: {
             standalone: 'JSZip',
-            transform: ['package-json-versionify'],
-            insertGlobalVars: {
-                process: undefined,
-                Buffer: undefined,
-                __filename: undefined,
-                __dirname: undefined
-            },
-            builtins: false
+            insertGlobalVars : {
+              Buffer: function () {
+                // instead of the full polyfill, we just use the raw value
+                // (or undefined).
+                return '(typeof Buffer !== "undefined" ? Buffer : undefined)';
+              }
+            }
           },
-          banner : grunt.file.read('lib/license_header.js').replace(/__VERSION__/, version)
+          postBundleCB: function(err, src, done) {
+            // add the license
+            var license = require('fs').readFileSync('lib/license_header.js');
+            // remove the source mapping of zlib.js, see #75
+            var srcWithoutSourceMapping = src.toString().replace(/\/\/@ sourceMappingURL=raw..flate.min.js.map/g, '');
+            done(err, license + srcWithoutSourceMapping);
+          }
         }
       }
     },
     uglify: {
       options: {
+        report: 'gzip',
         mangle: true,
-        preserveComments: false,
-        banner : grunt.file.read('lib/license_header.js').replace(/__VERSION__/, version)
+        preserveComments: 'some'
       },
       all: {
         src: 'dist/jszip.js',
         dest: 'dist/jszip.min.js'
       }
-    },
-    qunit: {
-        all: ['test/**/*.html']
     }
   });
 
@@ -168,12 +151,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
 
   if (process.env.SAUCE_USERNAME && process.env.SAUCE_ACCESS_KEY) {
-    grunt.registerTask("test", ["qunit", "connect", "saucelabs-qunit"]);
+    grunt.registerTask("test", ["connect", "saucelabs-qunit"]);
   } else {
-    grunt.registerTask("test", ["qunit"]);
+    grunt.registerTask("test", []);
   }
   grunt.registerTask("build", ["browserify", "uglify"]);
   grunt.registerTask("default", ["jshint", "build"]);

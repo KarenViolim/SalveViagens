@@ -19,29 +19,12 @@ documentation for more examples) :
 
 ```js
 JSZipUtils.getBinaryContent('path/to/content.zip', function(err, data) {
-    if(err) {
-        throw err; // or handle err
-    }
+  if(err) {
+    throw err; // or handle err
+  }
 
-    JSZip.loadAsync(data).then(function () {
-        // ...
-    });
+  var zip = new JSZip(data);
 });
-
-// or, with promises:
-
-new JSZip.external.Promise(function (resolve, reject) {
-    JSZipUtils.getBinaryContent('path/to/content.zip', function(err, data) {
-        if (err) {
-            reject(err);
-        } else {
-            resolve(data);
-        }
-    });
-}).then(function (data) {
-    return JSZip.loadAsync(data);
-})
-.then(...)
 ```
 
 <br>
@@ -80,48 +63,16 @@ var JSZip = require("jszip");
 
 // read a zip file
 fs.readFile("test.zip", function(err, data) {
-    if (err) throw err;
-    JSZip.loadAsync(data).then(function (zip) {
-        // ...
-    });
+  if (err) throw err;
+  var zip = new JSZip(data);
 });
-// or
-new JSZip.external.Promise(function (resolve, reject) {
-    fs.readFile("test.zip", function(err, data) {
-        if (err) {
-            reject(e);
-        } else {
-            resolve(data);
-        }
-    });
-}).then(function (data) {
-    return JSZip.loadAsync(data);
-})
-.then(...)
-
 
 // read a file and add it to a zip
 fs.readFile("picture.png", function(err, data) {
-    if (err) throw err;
-    var zip = new JSZip();
-    zip.file("picture.png", data);
+  if (err) throw err;
+  var zip = new JSZip();
+  zip.file("picture.png", data);
 });
-// or
-var contentPromise = new JSZip.external.Promise(function (resolve, reject) {
-    fs.readFile("picture.png", function(err, data) {
-        if (err) {
-            reject(e);
-        } else {
-            resolve(data);
-        }
-    });
-});
-zip.file("picture.png", contentPromise);
-
-
-// read a file as a stream and add it to a zip
-var stream = fs.createReadStream("picture.png");
-zip.file("picture.png", stream);
 ```
 
 #### Remote file
@@ -161,14 +112,15 @@ var req = http.get(url.parse("http://localhost/.../file.zip"), function (res) {
   });
 
   res.on("end", function () {
-    var buf = Buffer.concat(data);
+    var buf = new Buffer(dataLen);
+    for (var i=0,len=data.length,pos=0; i<len; i++) {
+      data[i].copy(buf, pos);
+      pos += data[i].length;
+    }
 
     // here we go !
-    JSZip.loadAsync(buf).then(function (zip) {
-      return zip.file("content.txt").async("string");
-    }).then(function (text) {
-      console.log(text);
-    });
+    var zip = new JSZip(buf);
+    console.log(zip.file("content.txt").asText());
   });
 });
 
@@ -194,10 +146,7 @@ request({
     // handle error
     return;
   }
-  JSZip.loadAsync(body).then(function (zip) {
-    return zip.file("content.txt").async("string");
-  }).then(function () {
-    console.log(text);
-  });
+  var zip = new JSZip(body);
+  console.log(zip.file("content.txt").asText());
 });
 ```

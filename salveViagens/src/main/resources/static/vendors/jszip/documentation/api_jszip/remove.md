@@ -4,19 +4,24 @@ layout: default
 section: api
 ---
 
-Delete a file or folder (recursively).
+__Description__ : Delete a file or folder (recursively).
 
-__Returns__ : The current JSZip object.
-
-__Since__: v1.0.0
-
-## Arguments
+__Arguments__
 
 name | type   | description
 -----|--------|------------
 name | string | the name of the file/folder to delete.
 
-## Examples
+__Returns__ : The current JSZip object.
+
+__Throws__ : Nothing.
+
+<!--
+__Complexity__ : **O(k)** where k is the number of entry to delete (may be > 1
+when removing a folder).
+-->
+
+__Example__
 
 ```js
 var zip = new JSZip();
