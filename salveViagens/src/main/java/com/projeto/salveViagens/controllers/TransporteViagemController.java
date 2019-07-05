@@ -12,6 +12,7 @@ import com.projeto.salveViagens.repository.TransporteViagemRepository;
 import com.projeto.salveViagens.repository.ViagemRepository;
 
 
+
 @Controller
 public class TransporteViagemController {
 	@Autowired
