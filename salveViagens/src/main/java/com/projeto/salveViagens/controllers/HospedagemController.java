@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.projeto.salveViagens.models.Hospedagem;
+import com.projeto.salveViagens.repository.CidadeRepository;
 import com.projeto.salveViagens.repository.HospedagemRepository;
 
 
@@ -20,11 +21,11 @@ public class HospedagemController {
 	private HospedagemRepository repositoryHospedagem;
 	
 	@Autowired
-	public HospedagemRepository repositoryCidade;
+	public CidadeRepository repositoryCidade;
 	
 	@GetMapping("/listarHospedagem")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("/hospedagem");
+		ModelAndView mv = new ModelAndView("/hospedagem1");
 		mv.addObject("hospedagem", repositoryHospedagem.findAll());
 		return mv;
 	}

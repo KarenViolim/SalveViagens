@@ -56,7 +56,6 @@ public class Hospedagem implements Serializable {
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+
+	
 }

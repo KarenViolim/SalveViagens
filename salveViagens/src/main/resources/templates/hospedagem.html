@@ -3,21 +3,30 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
+    <!--  OI AQui -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Salve Viagens | </title>
+    <title>Salve Viagens</title>
 
     <!-- Bootstrap -->
-    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="/build/css/custom.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -34,7 +43,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bem Vindo,</span>
@@ -63,7 +72,7 @@
                       <li><a href="adicionarViagem">Cadastrar Viagem</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i>Listas<span class="fa fa-chevron-down"></span></a>
+                   <li><a><i class="fa fa-desktop"></i>Listas<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="listarCidade">Exibir Cidades</a></li>
                       <li><a href="listarCliente">Exibir Clientes</a></li>
@@ -71,12 +80,13 @@
                       <li><a href="listarFormaPagamento">Exibir Forma de Pagamento</a></li>
                       <li><a href="listarFuncionario">Exibir Funcionários</a></li>
                       <li><a href="listarHospedagem">Exibir Hospedagem</a></li>
-                      <li><a href="listarTransporte">Exibir Transportee</a></li>
+                      <li><a href="listarTransporte">Exibir Transporte</a></li>
                       <li><a href="listarViagem">Exibir Viagem</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
+
             </div>
             <!-- /sidebar menu -->
 
@@ -139,12 +149,12 @@
                 <h3>Listas</h3>
               </div>
             </div>
-            <div class="clearfix"></div>
 
- 				<div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="clearfix"></div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Button Example <small>Users</small></h2>
+                    <h2>Exibir Clientes</h2>
 
                     <div class="clearfix"></div>
                   </div>
@@ -161,6 +171,7 @@
 		 				  <th></th>
                         </tr>
                       </thead>
+                      <tbody>
 						<tr th:each="hospedagem : ${hospedagem}">
  						  <td th:text="${hospedagem.id}"></td>
  						  <td th:text="${hospedagem.nomeHospedagem}"></td>
@@ -172,20 +183,18 @@
  						  <a class="btn btn-danger btn-xs" th:href="@{/removerHospedagem/{id}(id=${hospedagem.id})}">Remover</a>
  						  </td>
  						</tr>
-
-                      <tbody>
-
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-           </div>
+          </div>
+        </div>
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
+		<footer>
           <div class="pull-right">
             Desenvolvido por: João Pedro, Karen Cristina, Leandro Mazute Reginaldo Gouveia e Santiago Molina</a>
           </div>
@@ -193,21 +202,36 @@
         </footer>
         <!-- /footer content -->
       </div>
-    </div>
 
     <!-- jQuery -->
-    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="/vendors/nprogress/nprogress.js"></script>
-    <!-- validator -->
-    <script src="/vendors/validator/validator.js"></script>
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="/build/js/custom.min.js"></script>
+    <script src="build/js/custom.min.js"></script>
 
   </body>
 </html>
