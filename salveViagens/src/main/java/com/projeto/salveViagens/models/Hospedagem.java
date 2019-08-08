@@ -1,6 +1,7 @@
 package com.projeto.salveViagens.models;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,10 +19,10 @@ public class Hospedagem implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(nullable=false, length=50)
-	@NotEmpty(message="O Cargo é obrigatório")
-	private String nomeHopedagem;
-	private Double valorTotal;
-	private Double valorDiaria;
+	@NotEmpty(message="O nome é obrigatório")
+	private String nomeHospedagem;
+	private BigDecimal valorTotal;
+	private BigDecimal valorDiaria;
 	@ManyToOne
 	private Cidade cidade;
 
@@ -31,22 +32,22 @@ public class Hospedagem implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getNomeHopedagem() {
-		return nomeHopedagem;
+	public String getNomeHospedagem() {
+		return nomeHospedagem;
 	}
-	public void setNomeHopedagem(String nomeHopedagem) {
-		this.nomeHopedagem = nomeHopedagem;
+	public void setNomeHospedagem(String nomeHospedagem) {
+		this.nomeHospedagem = nomeHospedagem;
 	}
-	public Double getValorTotal() {
+	public BigDecimal getValorTotal() {
 		return valorTotal;
 	}
-	public void setValorTotal(Double valorTotal) {
+	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	public Double getValorDiaria() {
+	public BigDecimal getValorDiaria() {
 		return valorDiaria;
 	}
-	public void setValorDiaria(Double valorDiaria) {
+	public void setValorDiaria(BigDecimal valorDiaria) {
 		this.valorDiaria = valorDiaria;
 	}
 	public Cidade getCidade() {

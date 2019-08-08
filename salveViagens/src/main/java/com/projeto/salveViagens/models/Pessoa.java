@@ -3,14 +3,14 @@ package com.projeto.salveViagens.models;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
+@MappedSuperclass
 public class Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -22,7 +22,7 @@ public class Pessoa implements Serializable {
 	private String nome;
 	
 	@Column(nullable=false, length=250)
-	@NotEmpty(message="O nome é obrigatório")
+	@NotEmpty(message="O CPF é obrigatório")
 	private String cpf;
 	private String rg;
 	private String dtNascimento;
