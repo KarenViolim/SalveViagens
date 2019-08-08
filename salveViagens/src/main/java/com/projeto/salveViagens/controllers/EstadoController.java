@@ -21,7 +21,7 @@ public class EstadoController {
 	@Autowired
 	public EstadoRepository repository;
 	
-	@GetMapping("/listaEstado")
+	@GetMapping("/listarEstado")
 	public ModelAndView lista() {
 		ModelAndView mv = new ModelAndView("/estado");
 		List<Estado> estado = repository.findAll();

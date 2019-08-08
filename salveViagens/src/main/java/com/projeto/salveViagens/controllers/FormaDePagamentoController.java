@@ -21,7 +21,7 @@ public class FormaDePagamentoController {
 	@Autowired
 	public FormaPagamentoRepository repository;
 	
-	@GetMapping("/listaFormaPagamento")
+	@GetMapping("/listarFormaPagamento")
 	public ModelAndView lista() {
 		ModelAndView mv = new ModelAndView("/formapg");
 		List<FormaDePagamento> formadepagamento = repository.findAll();
