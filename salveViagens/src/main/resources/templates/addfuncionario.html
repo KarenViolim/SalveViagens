@@ -119,7 +119,6 @@
 										for="cidade">Cidade: <span class="required">*</span></label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
 										<select th:field="*{cidade}" class="form-control">
-											<option value="0">Selecione uma Cidade</option>
 											<option th:each="cidade: ${cidades}" th:value="${cidade.id}"
 												th:text="${cidade.nome}"></option>
 										</select>
