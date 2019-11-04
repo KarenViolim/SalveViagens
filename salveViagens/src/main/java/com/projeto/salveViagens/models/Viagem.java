@@ -16,17 +16,18 @@ public class Viagem implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private Integer TotalPassageiros;
+	private Integer totalPassageiros;
 	private Double comissao;
-	private Double Total;
-	private Date data;
+	private Date dataPartida;
+	private Date dataRetorno;
 	@ManyToOne
 	private Funcionario funcionario;
 	@ManyToOne
 	private FormaDePagamento formaPagamento;
 	@ManyToOne
 	private Cliente cliente;
-	
+	private long transporte;
+	private long hospedagem;
 	
 	public long getId() {
 		return id;
@@ -35,10 +36,10 @@ public class Viagem implements Serializable {
 		this.id = id;
 	}
 	public Integer getTotalPassageiros() {
-		return TotalPassageiros;
+		return totalPassageiros;
 	}
 	public void setTotalPassageiros(Integer totalPassageiros) {
-		TotalPassageiros = totalPassageiros;
+		this.totalPassageiros = totalPassageiros;
 	}
 	public Double getComissao() {
 		return comissao;
@@ -46,17 +47,17 @@ public class Viagem implements Serializable {
 	public void setComissao(Double comissao) {
 		this.comissao = comissao;
 	}
-	public Double getTotal() {
-		return Total;
+	public Date getDataPartida() {
+		return dataPartida;
 	}
-	public void setTotal(Double total) {
-		Total = total;
+	public void setDataPartida(Date dataPartida) {
+		this.dataPartida = dataPartida;
 	}
-	public Date getData() {
-		return data;
+	public Date getDataRetorno() {
+		return dataRetorno;
 	}
-	public void setData(Date data) {
-		this.data = data;
+	public void setDataRetorno(Date dataRetorno) {
+		this.dataRetorno = dataRetorno;
 	}
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -76,7 +77,17 @@ public class Viagem implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public long getTransporte() {
+		return transporte;
 	}
+	public void setTransporte(long transporte) {
+		this.transporte = transporte;
+	}
+	public long getHospedagem() {
+		return hospedagem;
+	}
+	public void setHospedagem(long hospedagem) {
+		this.hospedagem = hospedagem;
+	}
+	
 }
