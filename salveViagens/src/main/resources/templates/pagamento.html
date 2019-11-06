@@ -56,7 +56,7 @@
         <div class="row align-items-center">
           <div class="col-md">
             <h2 class="heading mb-2 display-4 font-light probootstrap-animate">Salve sua viagem com a SALVE VIAGENS</h2>
-            <p class="lead mb-5 probootstrap-animate">Explore o mundo facilmente </p>
+            <p class="lead mb-5 probootstrap-animate">Já está Acabando agora é só Vaijar.</p>
           </div> 
           <div class="col-md probootstrap-animate">
             <form th:action="@{salvarViagem}" class="probootstrap-form" th:object="${viagem}" method="post">
@@ -64,62 +64,22 @@
                 <div class="row mb-3">
                   <div class="col-md">
                     <div class="form-group">
-                      <label for="id_label_single">Origem</label>
+                      <label for="id_label_single">Forma de Pagamento</label>
                       <label for="id_label_single" style="width: 100%;">
-                      	<input th:field="*{id}" type="hidden">
-                        <select name="origem" class="js-example-basic-single js-states form-control" 
+                        <select th:field="*{formaPagamento}" class="js-example-basic-single js-states form-control" 
                         id="id_label_single" style="width: 100%;">
-                          <option th:each="cidade: ${cidades}" th:value="${cidade.id}"
-                          th:text="${cidade.nome}"></option>
+                          <option th:each="forma: ${formas}" th:value="${forma.id}"
+                          th:text="|${forma.parcela}X R$${viagem.total/forma.parcela}|"></option>
                         </select>
                       </label>
                     </div>
                   </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="id_label_single2">Destino</label>
-                      <div class="probootstrap_select-wrap">
-                        <label for="id_label_single2" style="width: 100%;">
-                        <select name="destino" class="js-example-basic-single js-states form-control" 
-                        id="id_label_single2" style="width: 100%;">
-                          <option th:each="cidade: ${cidades}" th:value="${cidade.id}"
-                          th:text="${cidade.nome}"></option>
-                        </select>
-                      </label>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <!-- END row -->
-                <div class="row mb-5">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="probootstrap-date-departure">Saída</label>
-                      <input type="date" th:field="*{dataPartida}">
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="probootstrap-date-arrival">Chegada</label>
-                      <input type="date" th:field="*{dataRetorno}">
-                    </div>
-                  </div>
-                </div>
-                <!-- END row -->
-                <div class="form-group">
-                  <div class="row mb-8">
-                    <div class="col-md">
-                      <div class="form-group">
-                          <label for="id_label_single">Quantidade de Passageiros</label>
-                          <input th:field="*{TotalPassageiros}" type="number" id="probootstrap-text-arrival" class="form-control" >
-                      </div>
-                    </div>
-                  </div>
-                  </div>
                   <!-- END row -->
+                 <input th:field="*{id}" type="hidden">
 							<div class="col-md">
 								<div class="form-group">
-									<label for="id_label_single2">Companhia</label>
+									<label for="id_label_single2">Condições</label>
 									<div class="probootstrap_select-wrap">
 										<label for="id_label_single3" style="width: 100%;"> 
 										<select name="companhia" class="js-example-basic-single js-states form-control"

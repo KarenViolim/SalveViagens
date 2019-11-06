@@ -63,22 +63,22 @@
       <div class="overlay"></div>
       <div class="container"></div>
             <!-- Table -->
-                    
+       <form th:action="@{/pagamento}" method="post" th:object="${viagem}">
         <div class="col-md probootstrap-animate">
           <div class="table-responsive table-responsive-data2">
             <table class="table table-data3">
                 <thead >
                     <tr>
                         <th>Origem</th>
-                        <td th:text="${transporte.origem.nome}"></td>
+                        <td th:text="${viagem.transporte.origem.nome}"></td>
                     </tr>
                     <tr>
                         <th>Destino</th>
-                        <td th:text="${transporte.destino.nome}"></td>
+                        <td th:text="${viagem.transporte.destino.nome}"></td>
                     </tr>
                     <tr>
                         <th>Empresa</th>
-                        <td th:text="${transporte.companhia.nome}"></td>
+                        <td th:text="${viagem.transporte.companhia.nome}"></td>
                     </tr>
                     <tr>
                         <th>Quantidade de Passageiros</th>
@@ -86,27 +86,31 @@
                     </tr>
                     <tr>
                         <th>Preço Passagem </th>
-                        <td th:text="${transporte.valorPassagem}"></td>
+                        <td th:text="${viagem.transporte.valorPassagem}"></td>
                     </tr>
                     <tr>
                         <th>Total de Transporte</th>
-                        <td th:text="${transporte.valorPassagem} * ${viagem.totalPassageiros}"></td>
+                        <td th:text="${viagem.transporte.valorPassagem} * ${viagem.totalPassageiros}"></td>
                     </tr>
                     <tr>
                         <th>Hotel</th>
-                        <td th:text="${hotel.nome}"></td>
+                        <td th:text="${viagem.hospedagem.nome}"></td>
                     </tr>
                     <tr>
                         <th>Diárias</th>
-                        <td th:text="${viagem.dataRetorno} - ${viagem.dataPartida}"></td>
+                        <td th:text="${viagem.diarias}"></td>
                     </tr>
                     <tr>
                         <th>Preço Diárias</th>
-                        <td th:text="${hotel.valor}"></td>
+                        <td th:text="${viagem.hospedagem.valor * viagem.totalPassageiros}"></td>
                     </tr>
                     <tr>
                         <th>Total Hospedagem</th>
-                        <td th:text="${hotel.valor} * (${viagem.dataRetorno} - ${viagem.dataPartida})"></td>
+                        <td th:text="${viagem.hospedagem.valor} * ${viagem.diarias} * ${viagem.totalPassageiros}"></td>
+                    </tr>
+                    <tr>
+                        <th>Total Viagem</th>
+                        <td th:text="${viagem.total}"></td>
                     </tr>
                 </thead>
             </table>
@@ -114,23 +118,27 @@
         </div>
         <!-- END DATA TABLE -->
         <div class="row">
-        <div class="col-md-3">
-            <div class="form-group">
-              <label for="id_label_single2">Formas de Pagamento</label>
-              <div class="probootstrap_select-wrap">
-                <label for="id_label_single2" style="width: 100%;">
-                <select class="js-example-basic-single js-states form-control" id="id_label_single2" style="width: 100%;">
-                  <option value="Japan">Cartão de Crédito</option>
-                </select>
-              </label>
-              </div>
-            </div>
-          </div>
         <div class="col-md">
+         <input th:field="*{id}" type="hidden">
+                <div class="row mb-3">
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="id_label_single">Forma de Pagamento</label>
+                      <label for="id_label_single" style="width: 100%;">
+                        <select th:field="*{formaPagamento}" class="js-example-basic-single js-states form-control" 
+                        id="id_label_single" style="width: 100%;">
+                          <option th:each="forma: ${formas}" th:value="${forma.id}"
+                          th:text="|${forma.parcela}X R$${viagem.total/forma.parcela}|"></option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+                </div>
           <p class="lead mb-5 probootstrap-animate"></p>
           <p class="probootstrap-animate">
-            <a href="https://free-template.co/" target="_blank" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3">Confimar</a> 
+            <input  type="submit" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3"></input> 
           </p>
+        </form>
         </div>
 
         </div>

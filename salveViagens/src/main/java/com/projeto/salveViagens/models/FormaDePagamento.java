@@ -20,7 +20,15 @@ public class FormaDePagamento implements Serializable {
 	
 	@NotEmpty(message="A Forma de Pagamento é obrigatório")
 	private String formaPagamento;
+	
+	private int parcela;
 
+	public int getParcela() {
+		return parcela;
+	}
+	public void setParcela(int parcela) {
+		this.parcela = parcela;
+	}
 	public long getId() {
 		return id;
 	}

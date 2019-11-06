@@ -20,15 +20,25 @@ public class Viagem implements Serializable {
 	private Double comissao;
 	private Date dataPartida;
 	private Date dataRetorno;
+	private int diarias;
 	@ManyToOne
 	private Funcionario funcionario;
 	@ManyToOne
 	private FormaDePagamento formaPagamento;
 	@ManyToOne
 	private Cliente cliente;
-	private long transporte;
-	private long hospedagem;
+	@ManyToOne
+	private Transporte transporte;
+	@ManyToOne
+	private Hospedagem hospedagem;
+	private double total;
 	
+	public double getTotal() {
+		return total;
+	}
+	public void setTotal(double total) {
+		this.total = total;
+	}
 	public long getId() {
 		return id;
 	}
@@ -77,17 +87,23 @@ public class Viagem implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public long getTransporte() {
+	public Transporte getTransporte() {
 		return transporte;
 	}
-	public void setTransporte(long transporte) {
+	public void setTransporte(Transporte transporte) {
 		this.transporte = transporte;
 	}
-	public long getHospedagem() {
+	public Hospedagem getHospedagem() {
 		return hospedagem;
 	}
-	public void setHospedagem(long hospedagem) {
+	public void setHospedagem(Hospedagem hospedagem) {
 		this.hospedagem = hospedagem;
+	}
+	public int getDiarias() {
+		return diarias;
+	}
+	public void setDiarias(int diarias) {
+		this.diarias = diarias;
 	}
 	
 }

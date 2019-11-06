@@ -21,7 +21,7 @@ public class Hospedagem implements Serializable {
 	@Column(nullable=false, length=50)
 	@NotEmpty(message="O nome é obrigatório")
 	private String nome;
-	private BigDecimal valor;
+	private double valor;
 	@ManyToOne
 	private Cidade cidade;
 	private String foto;
@@ -38,10 +38,10 @@ public class Hospedagem implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public BigDecimal getValor() {
+	public double getValor() {
 		return valor;
 	}
-	public void setValor(BigDecimal valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 	public Cidade getCidade() {
