@@ -1,14 +1,12 @@
 package com.projeto.salveViagens.models;
 
 import java.io.Serializable;
-import java.sql.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Transporte implements Serializable {
@@ -17,36 +15,43 @@ public class Transporte implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String valorTransporte;
-	private Date dataPartida;
-	@Column(nullable=false, length=250)
-	@NotEmpty(message="O transporte é obrigatório")
-	private String nome;
+	private Double valorPassagem;
+	@ManyToOne
+	private Cidade origem;
+	@ManyToOne
+	private Cidade destino;
+	@ManyToOne
+	private Companhia companhia;
+	
+	public Companhia getCompanhia() {
+		return companhia;
+	}
+	public void setCompanhia(Companhia companhia) {
+		this.companhia = companhia;
+	}
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getValorTransporte() {
-		return valorTransporte;
+	public Double getValorPassagem() {
+		return valorPassagem;
 	}
-	public void setValorTransporte(String valorTransporte) {
-		this.valorTransporte = valorTransporte;
+	public void setValorPassagem(Double valorPassagem) {
+		this.valorPassagem = valorPassagem;
 	}
-	public Date getDataPartida() {
-		return dataPartida;
+	public Cidade getOrigem() {
+		return origem;
 	}
-	public void setDataPartida(Date dataPartida) {
-		this.dataPartida = dataPartida;
+	public void setOrigem(Cidade origem) {
+		this.origem = origem;
 	}
-	public String getNome() {
-		return nome;
+	public Cidade getDestino() {
+		return destino;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDestino(Cidade destino) {
+		this.destino = destino;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
 }

@@ -21,36 +21,36 @@ public class EstadoController {
 	@Autowired
 	public EstadoRepository repository;
 	
-	@GetMapping("/listarEstado")
+	@GetMapping("administrativo/estado/listarEstado")
 	public ModelAndView lista() {
-		ModelAndView mv = new ModelAndView("/estado");
+		ModelAndView mv = new ModelAndView("/administrativo/estado/estado");
 		List<Estado> estado = repository.findAll();
 		mv.addObject("estado", estado);
 		return mv;
 	}
 	
-	@PostMapping("/buscarEstado")
+	@PostMapping("administrativo/estado/buscarEstado")
 	public ModelAndView pesquisar(String pesquisa) {
-		ModelAndView mv = new ModelAndView("/estado");
+		ModelAndView mv = new ModelAndView("/administrativo/estado/estado");
 		List<Estado> estado = repository.buscarPorNome(pesquisa);
 		mv.addObject("estado", estado);
 		return mv;
 	}
 	
-	@GetMapping("/adicionarEstado")
+	@GetMapping("administrativo/estado/adicionarEstado")
 	public ModelAndView add(Estado estado) {
-		ModelAndView mv = new ModelAndView("/addestado");
+		ModelAndView mv = new ModelAndView("/administrativo/estado/addestado");
 		mv.addObject("estado", estado);
 		return mv;
 	}
-	@GetMapping("/editarEstado/{id}")
+	@GetMapping("administrativo/estado/editarEstado/{id}")
 	public ModelAndView editar(@PathVariable("id") Long id){
 		Optional<Estado> estado = repository.findById(id);
 		Estado e = estado.get();
 		return add(e);
 		
 	}
-	@GetMapping("/removerEstado/{id}")
+	@GetMapping("administrativo/estado/removerEstado/{id}")
 	public ModelAndView remover(@PathVariable("id") Long id){
 		Optional<Estado> estado = repository.findById(id);
 		Estado e = estado.get();
@@ -58,7 +58,7 @@ public class EstadoController {
 		return lista();
 		
 	}
-	@PostMapping("/salvarEstado")
+	@PostMapping("administrativo/estado/salvarEstado")
 	public ModelAndView salvar(@Valid Estado estado, BindingResult result ) {
 		if(result.hasErrors()) {
 			

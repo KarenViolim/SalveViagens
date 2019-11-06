@@ -23,29 +23,29 @@ public class HospedagemController {
 	@Autowired
 	public CidadeRepository repositoryCidade;
 	
-	@GetMapping("/listarHospedagem")
+	@GetMapping("administrativo/hospedagem/listarHospedagem")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("/hospedagem1");
+		ModelAndView mv = new ModelAndView("/administrativo/hospedagem/hospedagem");
 		mv.addObject("hospedagem", repositoryHospedagem.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/adicionarHospedagem")
+	@GetMapping("administrativo/hospedagem/adicionarHospedagem")
 	public ModelAndView add(Hospedagem hospedagem) {
-		ModelAndView mv = new ModelAndView("/addhospedagem");
+		ModelAndView mv = new ModelAndView("/administrativo/hospedagem/addhospedagem");
 		mv.addObject("hospedagem", hospedagem);
 		mv.addObject("cidades", repositoryCidade.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/editarHospedagem/{id}")
+	@GetMapping("administrativo/hospedagem/editarHospedagem/{id}")
 	public ModelAndView editar(@PathVariable("id") long id) {
 		Optional<Hospedagem> op = repositoryHospedagem.findById(id);
 		Hospedagem hos = op.get();
 		return add(hos);
 	}
 	
-	@GetMapping("/removerHospedagem/{id}")
+	@GetMapping("administrativo/hospedagem/removerHospedagem/{id}")
 	public ModelAndView remover(@PathVariable("id") long id) {
 		Optional<Hospedagem> op = repositoryHospedagem.findById(id);
 		Hospedagem hos = op.get();
@@ -53,7 +53,7 @@ public class HospedagemController {
 		return listar();
 	}
 	
-	@PostMapping("/salvarHospedagem")
+	@PostMapping("administrativo/hospedagem/salvarHospedagem")
 	public ModelAndView salvar(Hospedagem hospedagem) {
 		repositoryHospedagem.save(hospedagem);
 		return listar();

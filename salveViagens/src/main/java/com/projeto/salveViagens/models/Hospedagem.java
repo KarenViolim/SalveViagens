@@ -20,41 +20,41 @@ public class Hospedagem implements Serializable {
 	private long id;
 	@Column(nullable=false, length=50)
 	@NotEmpty(message="O nome é obrigatório")
-	private String nomeHospedagem;
-	private BigDecimal valorTotal;
-	private BigDecimal valorDiaria;
+	private String nome;
+	private BigDecimal valor;
 	@ManyToOne
 	private Cidade cidade;
-
+	private String foto;
+	
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getNomeHospedagem() {
-		return nomeHospedagem;
+	public String getNome() {
+		return nome;
 	}
-	public void setNomeHospedagem(String nomeHospedagem) {
-		this.nomeHospedagem = nomeHospedagem;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	public BigDecimal getValorTotal() {
-		return valorTotal;
+	public BigDecimal getValor() {
+		return valor;
 	}
-	public void setValorTotal(BigDecimal valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-	public BigDecimal getValorDiaria() {
-		return valorDiaria;
-	}
-	public void setValorDiaria(BigDecimal valorDiaria) {
-		this.valorDiaria = valorDiaria;
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
 	}
 	public Cidade getCidade() {
 		return cidade;
 	}
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 	

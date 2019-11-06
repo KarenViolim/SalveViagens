@@ -20,29 +20,29 @@ public class FuncionarioController {
 	@Autowired
 	public CidadeRepository repositoryCidade;
 	
-	@GetMapping("/listarFuncionario")
+	@GetMapping("administrativo/funcionario/listarFuncionario")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("/funcionario");
+		ModelAndView mv = new ModelAndView("/administrativo/funcionario/funcionario");
 		mv.addObject("funcionario", repositoryFuncionario.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/adicionarFuncionario")
+	@GetMapping("administrativo/funcionario/adicionarFuncionario")
 	public ModelAndView add(Funcionario funcionario) {
-		ModelAndView mv = new ModelAndView("/addfuncionario");
+		ModelAndView mv = new ModelAndView("/administrativo/funcionario/addfuncionario");
 		mv.addObject("funcionario", funcionario);
 		mv.addObject("cidades", repositoryCidade.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/editarFuncionario/{id}")
+	@GetMapping("administrativo/funcionario/editarFuncionario/{id}")
 	public ModelAndView editar(@PathVariable("id") long id) {
 		Optional<Funcionario> op = repositoryFuncionario.findById(id);
 		Funcionario func = op.get();
 		return add(func);
 	}
 	
-	@GetMapping("/removerFuncionario/{id}")
+	@GetMapping("administrativo/funcionario/removerFuncionario/{id}")
 	public ModelAndView remover(@PathVariable("id") long id) {
 		Optional<Funcionario> op = repositoryFuncionario.findById(id);
 		Funcionario func = op.get();
@@ -50,7 +50,7 @@ public class FuncionarioController {
 		return listar();
 	}
 	
-	@PostMapping("/salvarFuncionario")
+	@PostMapping("administrativo/funcionario/salvarFuncionario")
 	public ModelAndView salvar(Funcionario funcionario) {
 		repositoryFuncionario.save(funcionario);
 		return listar();
