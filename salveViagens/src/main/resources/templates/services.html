@@ -134,6 +134,20 @@
                     </div>
                   </div>
                 </div>
+                                <div class="row mb-3">
+                  <div class="col-md">
+                    <div class="form-group">
+                      <label for="id_label_single">Clientes</label>
+                      <label for="id_label_single" style="width: 100%;">
+                        <select th:field="*{cliente}" class="js-example-basic-single js-states form-control" 
+                        id="id_label_single" style="width: 100%;">
+                          <option th:each="cliente: ${clientes}" th:value="${cliente.id}"
+                          th:text="${cliente.nome}"></option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+                </div>
           <p class="lead mb-5 probootstrap-animate"></p>
           <p class="probootstrap-animate">
             <input  type="submit" role="button" class="btn btn-primary p-3 mr-3 pl-5 pr-5 text-uppercase d-lg-inline d-md-inline d-sm-block d-block mb-3"></input> 
