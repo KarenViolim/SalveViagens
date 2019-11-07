@@ -21,28 +21,28 @@ public class FormaDePagamentoController {
 	@Autowired
 	public FormaPagamentoRepository repository;
 	
-	@GetMapping("/listarFormaPagamento")
+	@GetMapping("administrativo/formapagamento/listar")
 	public ModelAndView lista() {
-		ModelAndView mv = new ModelAndView("/formapg");
+		ModelAndView mv = new ModelAndView("/administrativo/formapagamento/lista");
 		List<FormaDePagamento> formadepagamento = repository.findAll();
 		mv.addObject("formadepagamento", formadepagamento);
 		return mv;
 	}
 	
-	@GetMapping("/adicionarFormaPagamento")
+	@GetMapping("administrativo/formapagamento/cadastrar")
 	public ModelAndView add(FormaDePagamento formadepagamento) {
-		ModelAndView mv = new ModelAndView("/addformapg");
+		ModelAndView mv = new ModelAndView("/administrativo/formapagamento/cadastro");
 		mv.addObject("formadepagamento", formadepagamento);
 		return mv;
 	}
-	@GetMapping("/editarFormaPagamento/{id}")
+	@GetMapping("administrativo/formapagamento/editarFormaPagamento/{id}")
 	public ModelAndView editar(@PathVariable("id") Long id){
 		Optional<FormaDePagamento> formadepagamento = repository.findById(id);
 		FormaDePagamento forma = formadepagamento.get();
 		return add(forma);
 		
 	}
-	@GetMapping("/removerFormaPagamento/{id}")
+	@GetMapping("administrativo/formapagamento/removerFormaPagamento/{id}")
 	public ModelAndView remover(@PathVariable("id") Long id){
 		Optional<FormaDePagamento> formadepagamento = repository.findById(id);
 		FormaDePagamento forma = formadepagamento.get();
@@ -50,7 +50,7 @@ public class FormaDePagamentoController {
 		return lista();
 		
 	}
-	@PostMapping("/salvarFormaPagamento")
+	@PostMapping("administrativo/formapagamento/salvarFormaPagamento")
 	public ModelAndView salvar(@Valid FormaDePagamento formadepagamento, BindingResult result ) {
 		if(result.hasErrors()) {
 			

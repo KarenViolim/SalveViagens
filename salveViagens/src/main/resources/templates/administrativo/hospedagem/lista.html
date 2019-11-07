@@ -56,9 +56,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>
-							Exibir Cidades</small>
-						</h2>
+						<h2>Exibir Clientes</h2>
 
 						<div class="clearfix"></div>
 					</div>
@@ -69,20 +67,24 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Nome</th>
-									<th>Estado</th>
+									<th>Nome da Hospedagem</th>
+									<th>Valor Total</th>
+									<th>Valor Diária</th>
+									<th>Cidade</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="cidade : ${cidade}">
-									<td th:text="${cidade.id}"></td>
-									<td th:text="${cidade.nome}"></td>
-									<td th:text="${cidade.estado.nome}"></td>
+								<tr th:each="hospedagem : ${hospedagem}">
+									<td th:text="${hospedagem.id}"></td>
+									<td th:text="${hospedagem.nome}"></td>
+									<td th:text="${hospedagem.valor}"></td>
+									<td th:text="${hospedagem.cidade.nome}"></td>
+									<td th:text="${hospedagem.foto}"></td>
 									<td><a class="btn btn-warning btn-xs"
-										th:href="@{/editarCidade/{id}(id=${cidade.id})}">Editar</a> <a
-										class="btn btn-danger btn-xs"
-										th:href="@{/removerCidade/{id}(id=${cidade.id})}">Remover</a>
+										th:href="@{/administrativo/hospedagem/editarHospedagem/{id}(id=${hospedagem.id})}">Editar</a>
+										<a class="btn btn-danger btn-xs"
+										th:href="@{/administrativo/hospedagem/removerHospedagem/{id}(id=${hospedagem.id})}">Remover</a>
 									</td>
 								</tr>
 							</tbody>

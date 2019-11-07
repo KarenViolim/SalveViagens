@@ -56,9 +56,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>
-							Exibir Estados</small>
-						</h2>
+						<h2>Exibir Papéis</h2>
 
 						<div class="clearfix"></div>
 					</div>
@@ -69,20 +67,18 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Nome</th>
-									<th>Sigla</th>
+									<th>Cargo</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="estado : ${estado}">
-									<td th:text="${estado.id}"></td>
-									<td th:text="${estado.nome}"></td>
-									<td th:text="${estado.sigla}"></td>
+								<tr th:each="papeis : ${papeis}">
+									<td th:text="${papeis.id}"></td>
+									<td th:text="${papeis.nome}"></td>
 									<td><a class="btn btn-warning btn-xs"
-										th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar</a> <a
-										class="btn btn-danger btn-xs"
-										th:href="@{/removerEstado/{id}(id=${estado.id})}">Remover</a>
+										th:href="@{/administrativo/papel/editarPapel/{id}(id=${papeis.id})}">Editar</a>
+										<a class="btn btn-danger btn-xs"
+										th:href="@{/administrativo/papel/removerPapel/{id}(id=${papeis.id})}">Remover</a>
 									</td>
 								</tr>
 							</tbody>

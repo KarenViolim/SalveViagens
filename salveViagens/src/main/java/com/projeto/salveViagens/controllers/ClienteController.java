@@ -21,29 +21,29 @@ public class ClienteController {
 	@Autowired
 	public CidadeRepository repositoryCidade;
 	
-	@GetMapping("/listarCliente")
+	@GetMapping("administrativo/cliente/listar")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("/cliente");
+		ModelAndView mv = new ModelAndView("/administrativo/cliente/lista");
 		mv.addObject("cliente", repositoryCliente.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/adicionarCliente")
+	@GetMapping("administrativo/cliente/cadastrar")
 	public ModelAndView add(Cliente cliente) {
-		ModelAndView mv = new ModelAndView("/addcliente");
+		ModelAndView mv = new ModelAndView("/administrativo/cliente/cadastro");
 		mv.addObject("cliente", cliente);
 		mv.addObject("cidades", repositoryCidade.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/editarCliente/{id}")
+	@GetMapping("administrativo/cliente/editarCliente/{id}")
 	public ModelAndView editar(@PathVariable("id") long id) {
 		Optional<Cliente> op = repositoryCliente.findById(id);
 		Cliente cli = op.get();
 		return add(cli);
 	}
 	
-	@GetMapping("/removerCliente/{id}")
+	@GetMapping("administrativo/cliente/removerCliente/{id}")
 	public ModelAndView remover(@PathVariable("id") long id) {
 		Optional<Cliente> op = repositoryCliente.findById(id);
 		Cliente cli = op.get();
@@ -51,7 +51,7 @@ public class ClienteController {
 		return listar();
 	}
 	
-	@PostMapping("/salvarCliente")
+	@PostMapping("administrativo/cliente/salvarCliente")
 	public ModelAndView salvar(Cliente cliente) {
 		repositoryCliente.save(cliente);
 		return listar();

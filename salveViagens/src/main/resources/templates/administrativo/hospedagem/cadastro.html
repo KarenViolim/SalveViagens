@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Meta, title, CSS, favicons, etc. -->
-<meta charset="UTF-8" />
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,6 +24,7 @@
 
 <body class="nav-md">
 	<div th:replace="~{fragments/menu :: menu}"></div>
+
 	<!-- page content -->
 	<div class="right_col" role="main">
 		<div class="">
@@ -39,14 +39,14 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="x_panel">
 						<div class="x_title">
-							<h2>Cadastro de Cidades</h2>
+							<h2>Cadastro de Hospedagem</h2>
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content">
 
 							<form class="form-horizontal form-label-left"
-								th:action="@{/salvarCidade}" method="Post" th:object="${cidade}"
-								novalidate>
+								action="/administrativo/hospedagem/salvarHospedagem" method="Post"
+								th:object="${hospedagem}" novalidate>
 								
 								<input th:field="*{id}" readOnly="readonly"
 											class="form-control col-md-7 col-xs-12" type="hidden">
@@ -55,19 +55,37 @@
 									<label class="control-label col-md-3 col-sm-3 col-xs-12"
 										for="name">Nome: <span class="required">*</span></label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input th:field="*{nome}" id="nome"
+										<input th:field="*{nome}"
 											class="form-control col-md-7 col-xs-12" required="required"
 											type="text">
 									</div>
 								</div>
 								<div class="item form-group">
 									<label class="control-label col-md-3 col-sm-3 col-xs-12"
-										for="estado">Estado: <span class="required">*</span></label>
+										for="name">Valor Total: <span class="required">*</span></label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<select th:field="*{estado}" class="form-control">
-											<option th:each="est: ${estados}" th:value="${est.id}"
-												th:text="${est.nome}"></option>
+										<input th:field="*{valor}"
+											class="form-control col-md-7 col-xs-12" required="required"
+											type="text">
+									</div>
+								</div>
+								<div class="item form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12"
+										for="nome">Cidade: <span class="required">*</span></label>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<select th:field="*{cidade}" class="form-control">
+											<option th:each="cid: ${cidades}" th:value="${cid.id}"
+												th:text="${cid.nome}"></option>
 										</select>
+									</div>
+								</div>
+								<div class="item form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12"
+										for="name">Foto: <span class="required">*</span></label>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<input th:field="*{foto}"
+											class="form-control col-md-7 col-xs-12" required="required"
+											type="text">
 									</div>
 								</div>
 								<div class="ln_solid"></div>
@@ -88,7 +106,7 @@
 
 	<!-- footer content -->
 	<div th:replace="~{fragments/footer :: footer}"></div>
-	
+	<!-- /footer content -->
 	</div>
 	</div>
 

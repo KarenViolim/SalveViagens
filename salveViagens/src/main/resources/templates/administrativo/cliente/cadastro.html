@@ -44,7 +44,7 @@
 						<div class="x_content">
 
 							<form class="form-horizontal form-label-left"
-								th:action="@{/salvarCliente}" method="Post"
+								action="/administrativo/cliente/salvarCliente" method="Post"
 								th:object="${cliente}" novalidate>
 								
 								<input th:field="*{id}" readOnly="readonly"

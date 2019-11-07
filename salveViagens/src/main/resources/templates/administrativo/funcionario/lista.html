@@ -56,7 +56,9 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>Exibir Formas de Pagamento</h2>
+						<h2>
+							Exibir Cidades</small>
+						</h2>
 
 						<div class="clearfix"></div>
 					</div>
@@ -67,18 +69,41 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Forma de Pagamento</th>
+									<th>Nome</th>
+									<th>CPF</th>
+									<th>RG</th>
+									<th>Data de Nascimento</th>
+									<th>Telefone</th>
+									<th>Endereço</th>
+									<th>Número</th>
+									<th>Cidade</th>
+									<th>Cargo</th>
+									<th>Data de Inicio</th>
+									<th>Salário</th>
+									<th>E-mail></th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="formadepagamento : ${formadepagamento}">
-									<td th:text="${formadepagamento.id}"></td>
-									<td th:text="${formadepagamento.formaPagamento}"></td>
+								<tr th:each="funcionario : ${funcionario}">
+									<td th:text="${funcionario.id}"></td>
+									<td th:text="${funcionario.nome}"></td>
+									<td th:text="${funcionario.cpf}"></td>
+									<td th:text="${funcionario.rg}"></td>
+									<td th:text="${funcionario.dtNascimento}"></td>
+									<td th:text="${funcionario.telefone}"></td>
+									<td th:text="${funcionario.endereco}"></td>
+									<td th:text="${funcionario.numero}"></td>
+									<td th:text="${funcionario.cidade.nome}"></td>
+									<td th:text="${funcionario.papel.nome}"></td>
+									<td th:text="${funcionario.dataInicio}"></td>
+									<td th:text="${funcionario.salario}"></td>
+									<td th:text="${funcionario.email}"></td>
+									
 									<td><a class="btn btn-warning btn-xs"
-										th:href="@{/editarFormaPagamento/{id}(id=${formadepagamento.id})}">Editar</a>
+										th:href="@{/administrativo/funcionario/editarFuncionario/{id}(id=${funcionario.id})}">Editar</a>
 										<a class="btn btn-danger btn-xs"
-										th:href="@{/removerFormaPagamento/{id}(id=${formadepagamento.id})}">Remover</a>
+										th:href="@{/administrativo/funcionario/removerFuncionario/{id}(id=${funcionario.id})}">Remover</a>
 									</td>
 								</tr>
 							</tbody>
@@ -88,13 +113,11 @@
 			</div>
 		</div>
 	</div>
-	</div>
 	<!-- /page content -->
 
 	<!-- footer content -->
 	<div th:replace="~{fragments/footer :: footer}"></div>
 	<!-- /footer content -->
-	</div>
 
 	<!-- jQuery -->
 	<script src="/vendors/jquery/dist/jquery.min.js"></script>

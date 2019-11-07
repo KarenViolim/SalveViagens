@@ -3,9 +3,8 @@ package com.projeto.salveViagens.models;
 import java.io.Serializable;
 import java.sql.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -15,10 +14,10 @@ public class Funcionario extends Pessoa implements Serializable {
 
 	private Double salario;
 	private Date dataInicio;
-	@Column(nullable=false, length=50)
-	@NotEmpty(message="O Cargo é obrigatório")
-	private String cargo;
-	
+	@ManyToOne
+	private Papeis papeis;
+	private String email;
+	private String senha;
 	public Double getSalario() {
 		return salario;
 	}
@@ -31,11 +30,23 @@ public class Funcionario extends Pessoa implements Serializable {
 	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public String getCargo() {
-		return cargo;
+	public Papeis getPapeis() {
+		return papeis;
 	}
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
+	public void setPapeis(Papeis papeis) {
+		this.papeis = papeis;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;

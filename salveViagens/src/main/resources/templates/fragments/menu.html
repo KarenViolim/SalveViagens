@@ -54,27 +54,31 @@
                 <ul class="nav side-menu">
                   <li><a href="/index"><i class="fa fa-home"></i>Página Inicial</a></li>
                   <li><a><i class="fa fa-edit"></i>Cadastros<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a th:href="@{/adicionarCidade}">Cadastrar Cidade</a></li>
-                      <li><a th:href="@{/adicionarCliente}">Cadastrar Cliente</a></li>
-                      <li><a th:href="@{/adicionarEstado}">Cadastrar Estado</a></li>
-                      <li><a th:href="@{/adicionarFormaPagamento}">Cadastrar Forma de Pagamento</a></li>
-                      <li><a th:href="@{/adicionarFuncionario}">Cadastrar Funcionario</a></li>
-                      <li><a th:href="@{/adicionarHospedagem}">Cadastrar Hospedagem</a></li>
-                      <li><a th:href="@{/adicionarTransporte}">Cadastrar Transporte</a></li>
-                      <li><a th:href="@{/adicionarViagem}">Cadastrar Viagem</a></li>
-                    </ul>
+	                  <ul class="nav child_menu">
+	                      <li><a href="/administrativo/cidade/cadastrar">Cadastrar Cidade</a></li>
+	                      <li><a href="/administrativo/cliente/cadastrar">Cadastrar Cliente</a></li>
+	                      <li><a href="/administrativo/estado/cadastrar">Cadastrar Estado</a></li>
+	                      <li><a href="/administrativo/formapagamento/cadastrar">Cadastrar Forma de Pagamento</a></li>
+	                      <li><a href="/administrativo/funcionario/cadastrar">Cadastrar Funcionario</a></li>
+	                      <li><a href="/administrativo/hospedagem/cadastrar">Cadastrar Hospedagem</a></li>
+	                      <li><a href="/administrativo/papel/cadastrar">Cadastrar Papel</a></li>
+	                      <li><a href="/administrativo/permissao/cadastrar">Cadastrar Permissão</a></li>
+	                      <li><a href="/administrativo/transporte/cadastrar">Cadastrar Transporte</a></li>
+	                      <li><a href="/administrativo/viagem/cadastrar">Cadastrar Viagem</a></li>
+	                    </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i>Listas<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a th:href="@{/listarCidade}">Exibir Cidades</a></li>
-                      <li><a th:href="@{/listarCliente}">Exibir Clientes</a></li>
-                      <li><a th:href="@{/listarEstado}">Exibir Estados </a></li>
-                      <li><a th:href="@{/listarFormaPagamento}">Exibir Forma de Pagamento</a></li>
-                      <li><a th:href="@{/listarFuncionario}">Exibir Funcionários</a></li>
-                      <li><a th:href="@{/listarHospedagem}">Exibir Hospedagem</a></li>
-                      <li><a th:href="@{/listarTransporte}">Exibir Transportee</a></li>
-                      <li><a th:href="@{/listarViagem}">Exibir Viagem</a></li>
+                     	<li><a href="/administrativo/cidade/listar">Listar Cidades</a></li>
+	                    <li><a href="/administrativo/cliente/listar">Listar Clientes</a></li>
+	                    <li><a href="/administrativo/estado/listar">Listar Estados</a></li>
+	                    <li><a href="/administrativo/formapagamento/listar">Listar Formas de Pagamento</a></li>
+	                    <li><a href="/administrativo/funcionario/listar">Listar Funcionarios</a></li>
+	                    <li><a href="/administrativo/hospedagem/listar">Listar Hospedagens</a></li>
+	                    <li><a href="/administrativo/papel/listar">Listar Papéis</a></li>
+	                    <li><a href="/administrativo/permissao/listar">Listar Permissões</a></li>
+	                    <li><a href="/administrativo/transporte/listar">Listar Transportes</a></li>
+	                    <li><a href="/administrativo/viagem/listar">Listar Viagens</a></li>
                     </ul>
                   </li>
                 </ul>

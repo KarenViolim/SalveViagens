@@ -39,36 +39,25 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="x_panel">
 						<div class="x_title">
-							<h2>Cadastro de Estados</h2>
+							<h2>Cadastro de Papel</h2>
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content">
 
 							<form class="form-horizontal form-label-left"
-								th:action="@{/salvarEstado}" method="Post" th:object="${estado}"
-								novalidate>
+								action="/administrativo/papel/salvarPapel" method="Post"
+								th:object="${papeis}" novalidate>
 								
 								<input th:field="*{id}" readOnly="readonly"
 											class="form-control col-md-7 col-xs-12" type="hidden">
 
 								<div class="item form-group">
 									<label class="control-label col-md-3 col-sm-3 col-xs-12"
-										for="name">Nome: <span class="required">*</span>
-									</label>
+										for="name">Nome: <span class="required">*</span></label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input th:field="*{nome}" id="name"
-											class="form-control col-md-7 col-xs-12"
-											data-validate-length-range="3" data-validate-words="1"
-											name="name" required="required" type="text">
-									</div>
-								</div>
-								<div class="item form-group">
-									<label class="control-label col-md-3 col-sm-3 col-xs-12"
-										for="sigla">Sigla: <span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input th:field="*{sigla}" type="text" id="sigla" name="sigla"
-											required="required" class="form-control col-md-7 col-xs-12">
+										<input th:field="*{nome}"
+											class="form-control col-md-7 col-xs-12" required="required"
+											type="text">
 									</div>
 								</div>
 								<div class="ln_solid"></div>
@@ -90,8 +79,6 @@
 	<!-- footer content -->
 	<div th:replace="~{fragments/footer :: footer}"></div>
 	<!-- /footer content -->
-	</div>
-	</div>
 
 	<!-- jQuery -->
 	<script src="/vendors/jquery/dist/jquery.min.js"></script>

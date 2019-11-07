@@ -12,32 +12,32 @@
 
 <!-- Bootstrap -->
 <link href="/vendors/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
 <!-- Font Awesome -->
 <link href="/vendors/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
 <!-- NProgress -->
-<link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
+<link href="/vendors/nprogress/nprogress.css" rel="stylesheet"/>
 <!-- iCheck -->
-<link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
 <!-- Datatables -->
 <link href="/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
 <link
 	href="/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
 <link
 	href="/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
 <link
 	href="/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
 <link
 	href="/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
 
 <!-- Custom Theme Style -->
-<link href="/build/css/custom.min.css" rel="stylesheet">
+<link href="/build/css/custom.min.css" rel="stylesheet"/>
 </head>
 
 <body class="nav-md">
@@ -70,37 +70,18 @@
 								<tr>
 									<th>ID</th>
 									<th>Nome</th>
-									<th>CPF</th>
-									<th>RG</th>
-									<th>Data de Nascimento</th>
-									<th>Telefone</th>
-									<th>Endereço</th>
-									<th>Número</th>
-									<th>Cidade</th>
-									<th>Cargo</th>
-									<th>Data de Inicio</th>
-									<th>Salário</th>
+									<th>Estado</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="funcionario : ${funcionario}">
-									<td th:text="${funcionario.id}"></td>
-									<td th:text="${funcionario.nome}"></td>
-									<td th:text="${funcionario.cpf}"></td>
-									<td th:text="${funcionario.rg}"></td>
-									<td th:text="${funcionario.dtNascimento}"></td>
-									<td th:text="${funcionario.telefone}"></td>
-									<td th:text="${funcionario.endereco}"></td>
-									<td th:text="${funcionario.numero}"></td>
-									<td th:text="${funcionario.cidade.nome}"></td>
-									<td th:text="${funcionario.cargo}"></td>
-									<td th:text="${funcionario.dataInicio}"></td>
-									<td th:text="${funcionario.salario}"></td>
-									<td><a class="btn btn-warning btn-xs"
-										th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}">Editar</a>
-										<a class="btn btn-danger btn-xs"
-										th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}">Remover</a>
+								<tr th:each="cidade : ${cidade}">
+									<td th:text="${cidade.id}"></td>
+									<td th:text="${cidade.nome}"></td>
+									<td th:text="${cidade.estado.nome}"></td>
+									<td>
+									<a class="btn btn-warning btn-xs" th:href="@{/administrativo/cidade/editarCidade/{id}(id=${cidade.id})}">Editar</a> 
+									<a class="btn btn-danger btn-xs" th:href="@{/administrativo/cidade/removerCidade/{id}(id=${cidade.id})}">Remover</a>
 									</td>
 								</tr>
 							</tbody>

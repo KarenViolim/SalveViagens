@@ -21,33 +21,33 @@ public class TransporteController {
 	@Autowired
 	private TransporteRepository repository;
 	
-	@GetMapping("/adicionarTransporte")
+	@GetMapping("administrativo/transporte/cadastrar")
 	public ModelAndView add(Transporte transporte) {
-		ModelAndView mv = new ModelAndView("/addtransporte");
+		ModelAndView mv = new ModelAndView("/administrativo/transporte/cadastro");
 		mv.addObject("transporte",transporte);
 		return mv;
 	}
-	@GetMapping("/listarTransporte")
+	@GetMapping("administrativo/transporte/listar")
 	public ModelAndView lista() {
-		ModelAndView mv = new ModelAndView("/transporte");
+		ModelAndView mv = new ModelAndView("/administrativo/transporte/lista");
 		List<Transporte> transporte = repository.findAll();
 		mv.addObject("transporte", transporte);
 		return mv;
 	}
-	@GetMapping("/editarTransporte/{id}")
+	@GetMapping("administrativo/transporte/editarTransporte/{id}")
 	public ModelAndView editar(@PathVariable("id") Long id) {
 		Optional<Transporte> transporte = repository.findById(id);
 		Transporte transp = transporte.get();
 		return add(transp);
 	}
-	@GetMapping("/removerTransporte/{id}")
+	@GetMapping("administrativo/transporte/removerTransporte/{id}")
 	public ModelAndView remover(@PathVariable("id") Long id) {
 		Optional<Transporte> transporte = repository.findById(id);
 		Transporte transp = transporte.get();
 		repository.delete(transp);
 		return lista();
 	}
-	@PostMapping("/salvarTransporte")
+	@PostMapping("administrativo/transporte/salvarTransporte")
 	public ModelAndView salvar(@Valid Transporte transporte, BindingResult result) {
 		if(result.hasErrors()) {
 			

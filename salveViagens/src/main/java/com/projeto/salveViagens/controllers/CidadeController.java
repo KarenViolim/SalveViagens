@@ -22,29 +22,29 @@ public class CidadeController {
 	@Autowired
 	public EstadoRepository repositoryEstado;
 	
-	@GetMapping("/listarCidade")
+	@GetMapping("/administrativo/cidade/listar")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("/cidade");
+		ModelAndView mv = new ModelAndView("/administrativo/cidade/lista");
 		mv.addObject("cidade", repositoryCidade.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/adicionarCidade")
+	@GetMapping("/administrativo/cidade/cadastrar")
 	public ModelAndView add(Cidade cidade) {
-		ModelAndView mv = new ModelAndView("/addcidade");
+		ModelAndView mv = new ModelAndView("/administrativo/cidade/cadastro");
 		mv.addObject("cidade", cidade);
 		mv.addObject("estados", repositoryEstado.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/editarCidade/{id}")
+	@GetMapping("/administrativo/cidade/editarCidade/{id}")
 	public ModelAndView editar(@PathVariable("id") long id) {
 		Optional<Cidade> op = repositoryCidade.findById(id);
 		Cidade cid = op.get();
 		return add(cid);
 	}
 	
-	@GetMapping("/removerCidade/{id}")
+	@GetMapping("/administrativo/cidade/removerCidade/{id}")
 	public ModelAndView remover(@PathVariable("id") long id) {
 		Optional<Cidade> op = repositoryCidade.findById(id);
 		Cidade cid = op.get();
@@ -52,7 +52,7 @@ public class CidadeController {
 		return listar();
 	}
 	
-	@PostMapping("/salvarCidade")
+	@PostMapping("/administrativo/cidade/salvarCidade")
 	public ModelAndView salvar(Cidade cidade) {
 		repositoryCidade.save(cidade);
 		return listar();

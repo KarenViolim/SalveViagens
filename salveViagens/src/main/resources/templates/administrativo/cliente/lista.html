@@ -67,24 +67,32 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Nome da Hospedagem</th>
-									<th>Valor Total</th>
-									<th>Valor Diária</th>
+									<th>Nome</th>
+									<th>CPF</th>
+									<th>RG</th>
+									<th>Data de Nascimento</th>
+									<th>Telefone</th>
+									<th>Endereço</th>
+									<th>Número</th>
 									<th>Cidade</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="hospedagem : ${hospedagem}">
-									<td th:text="${hospedagem.id}"></td>
-									<td th:text="${hospedagem.nomeHospedagem}"></td>
-									<td th:text="${hospedagem.valorTotal}"></td>
-									<td th:text="${hospedagem.valorDiaria}"></td>
-									<td th:text="${hospedagem.cidade.nome}"></td>
+								<tr th:each="cliente : ${cliente}">
+									<td th:text="${cliente.id}"></td>
+									<td th:text="${cliente.nome}"></td>
+									<td th:text="${cliente.cpf}"></td>
+									<td th:text="${cliente.rg}"></td>
+									<td th:text="${cliente.dtNascimento}"></td>
+									<td th:text="${cliente.telefone}"></td>
+									<td th:text="${cliente.endereco}"></td>
+									<td th:text="${cliente.numero}"></td>
+									<td th:text="${cliente.cidade.nome}"></td>
 									<td><a class="btn btn-warning btn-xs"
-										th:href="@{/editarHospedagem/{id}(id=${hospedagem.id})}">Editar</a>
+										th:href="@{/administrativo/cliente/editarCliente/{id}(id=${cliente.id})}">Editar</a>
 										<a class="btn btn-danger btn-xs"
-										th:href="@{/removerHospedagem/{id}(id=${hospedagem.id})}">Remover</a>
+										th:href="@{/administrativo/cliente/removerCliente/{id}(id=${cliente.id})}">Remover</a>
 									</td>
 								</tr>
 							</tbody>

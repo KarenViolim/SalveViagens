@@ -31,8 +31,8 @@
 		 			<td th:text="${transporte.valorTransporte}"></td>
 		 			<td th:text="${transporte.dataPartida}"></td>
 		 			<td>
-		 			<a class="btn btn-warning btn-xs" th:href="@{/editarTransporte/{id}(id=${transporte.id})}">Editar</a>
-		 			<a class="btn btn-danger btn-xs" th:href="@{/removerTransporte/{id}(id=${transporte.id})}">Remover</a>
+		 			<a class="btn btn-warning btn-xs" th:href="@{/administrativo/transporte/editarTransporte/{id}(id=${transporte.id})}">Editar</a>
+		 			<a class="btn btn-danger btn-xs" th:href="@{/administrativo/transporte/removerTransporte/{id}(id=${transporte.id})}">Remover</a>
 		 			</td>
 		 		</tr>
 		 	</tbody>
