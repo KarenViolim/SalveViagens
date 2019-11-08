@@ -56,9 +56,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>
-							Exibir Cidades</small>
-						</h2>
+						<h2>Exibir Formas de Pagamento</h2>
 
 						<div class="clearfix"></div>
 					</div>
@@ -95,7 +93,7 @@
 									<td th:text="${funcionario.endereco}"></td>
 									<td th:text="${funcionario.numero}"></td>
 									<td th:text="${funcionario.cidade.nome}"></td>
-									<td th:text="${funcionario.papel.nome}"></td>
+									<td th:text="${funcionario.papeis.nome}"></td>
 									<td th:text="${funcionario.dataInicio}"></td>
 									<td th:text="${funcionario.salario}"></td>
 									<td th:text="${funcionario.email}"></td>
@@ -113,11 +111,13 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	<!-- /page content -->
 
 	<!-- footer content -->
 	<div th:replace="~{fragments/footer :: footer}"></div>
 	<!-- /footer content -->
+	</div>
 
 	<!-- jQuery -->
 	<script src="/vendors/jquery/dist/jquery.min.js"></script>

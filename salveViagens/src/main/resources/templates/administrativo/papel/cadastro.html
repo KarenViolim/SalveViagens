@@ -39,11 +39,10 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="x_panel">
 						<div class="x_title">
-							<h2>Cadastro de Papel</h2>
+							<h2>Cadastro de Hospedagem</h2>
 							<div class="clearfix"></div>
 						</div>
 						<div class="x_content">
-
 							<form class="form-horizontal form-label-left"
 								action="/administrativo/papel/salvarPapel" method="Post"
 								th:object="${papeis}" novalidate>
@@ -67,7 +66,7 @@
 										<button type="submit" class="btn btn-primary">Cancelar</button>
 									</div>
 								</div>
-							</form>
+							</form>						
 						</div>
 					</div>
 				</div>
@@ -79,6 +78,8 @@
 	<!-- footer content -->
 	<div th:replace="~{fragments/footer :: footer}"></div>
 	<!-- /footer content -->
+	</div>
+	</div>
 
 	<!-- jQuery -->
 	<script src="/vendors/jquery/dist/jquery.min.js"></script>
