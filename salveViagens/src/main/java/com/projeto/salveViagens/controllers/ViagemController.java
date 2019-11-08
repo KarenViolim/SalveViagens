@@ -110,13 +110,13 @@ public class ViagemController {
 		}
 		repositoryViagem.save(viagem);
 		
-		return hotel(viagem, destino);
+		return hotel(viagem);
 	}
 	
 	@PostMapping("/listarHotel")
-	public ModelAndView hotel(Viagem viagem, Cidade destino) {
+	public ModelAndView hotel(Viagem viagem) {
 		ModelAndView mv = new ModelAndView("/hoteis");
-		mv.addObject("hoteis", repositorioHotel.findAll());
+		mv.addObject("hoteis", repositorioHotel.buscarPorDestino(viagem.getTransporte().getDestino()));
 		mv.addObject("viagem", viagem);
 		return mv;
 	}

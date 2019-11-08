@@ -39,7 +39,8 @@
 			<input th:field="*{id}" type="hidden"></input>
 			
             <div class="media probootstrap-media d-flex align-items-stretch mb-4 probootstrap-animate" th:each="hotel : ${hoteis}">
-              <div class="probootstrap-media-image" style="background-image: url(images/img_1.jpg)">
+              <div class="probootstrap-media-image" style="background-image: url" th:src="@{${hotel.foto}}">
+              <img th:src="@{${hotel.foto}}"/>
               </div>
               <div class="media-body">
                 <h5 class="mb-3"><span th:text="${hotel.nome}"></span></h5>
@@ -49,7 +50,7 @@
               </div>
               </div>
            <div class="col-md">
-              <input type="submit" value="Salvar" class="btn btn-primary btn-block">
+              <input type="submit" value="Avançar" class="btn btn-primary btn-block">
             </div>
             </form>
           </div>
