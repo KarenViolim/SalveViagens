@@ -3,7 +3,7 @@ package com.projeto.salveViagens.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,7 +59,7 @@ public class FuncionarioController {
 	
 	@PostMapping("administrativo/funcionario/salvarFuncionario")
 	public ModelAndView salvar(Funcionario funcionario) {
-//		funcionario.setSenha(new BCryptPasswordEncoder().encode(funcionario.getSenha()));
+		funcionario.setSenha(new BCryptPasswordEncoder().encode(funcionario.getSenha()));
 		
 		repositoryFuncionario.save(funcionario);
 		return listar();

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.projeto.salveViagens.models.Transporte;
+import com.projeto.salveViagens.repository.CidadeRepository;
+import com.projeto.salveViagens.repository.CompanhiaRepository;
 import com.projeto.salveViagens.repository.TransporteRepository;
 
 @Controller
@@ -21,10 +23,17 @@ public class TransporteController {
 	@Autowired
 	private TransporteRepository repository;
 	
+	@Autowired
+	private CidadeRepository repositoryCidade;
+	@Autowired
+	private CompanhiaRepository repositoryCompanhia;
+	
 	@GetMapping("administrativo/transporte/cadastrar")
 	public ModelAndView add(Transporte transporte) {
 		ModelAndView mv = new ModelAndView("/administrativo/transporte/cadastro");
 		mv.addObject("transporte",transporte);
+		mv.addObject("cidade", repositoryCidade.findAll());
+		mv.addObject("companhia", repositoryCompanhia.findAll());
 		return mv;
 	}
 	@GetMapping("administrativo/transporte/listar")
@@ -54,8 +63,5 @@ public class TransporteController {
 		}
 		repository.saveAndFlush(transporte);
 		return lista();
-	}
-	
-	
-	
+	}	
 }
