@@ -22,6 +22,7 @@ import com.projeto.salveViagens.repository.CidadeRepository;
 import com.projeto.salveViagens.repository.ClienteRepository;
 import com.projeto.salveViagens.repository.CompanhiaRepository;
 import com.projeto.salveViagens.repository.FormaPagamentoRepository;
+import com.projeto.salveViagens.repository.FuncionarioRepository;
 import com.projeto.salveViagens.repository.HospedagemRepository;
 import com.projeto.salveViagens.repository.TransporteRepository;
 import com.projeto.salveViagens.repository.ViagemRepository;
@@ -51,6 +52,9 @@ public class ViagemController {
 	
 	@Autowired
 	private ClienteRepository repositorioCliente;
+	
+	@Autowired
+	private FuncionarioRepository repositorioFuncionario;
 	
 	@GetMapping("/")
 	public ModelAndView add(Viagem viagem) {
@@ -124,6 +128,8 @@ public class ViagemController {
 		via.setHospedagem(viagem.getHospedagem());
 	
 		via.setTotal((via.getHospedagem().getValor() * via.getDiarias() * via.getTotalPassageiros()) + (via.getTransporte().getValorPassagem() * via.getTotalPassageiros()));
+		via.setComissao(via.getTotal()*0.02);
+		via.setCustoTotal((via.getHospedagem().getCustoHospedagem() * via.getDiarias() * via.getTotalPassageiros()) + (via.getTransporte().getCustoPassagem() * via.getTotalPassageiros()) + via.getComissao());
 		repositoryViagem.save(via);
 		return resumo(via);
 	}
@@ -133,6 +139,7 @@ public class ViagemController {
 		ModelAndView mv = new ModelAndView("/services");
 		mv.addObject("formas", repositorioForma.findAll());
 		mv.addObject("clientes", repositorioCliente.findAll());
+		mv.addObject("funcionarios", repositorioFuncionario.findAll());
 		mv.addObject("viagem", viagem);
 		return mv;
 	}
@@ -143,6 +150,7 @@ public class ViagemController {
 		Viagem via = op.get();
 		via.setFormaPagamento(viagem.getFormaPagamento());
 		via.setCliente(viagem.getCliente());
+		via.setFuncionario(viagem.getFuncionario());
 		repositoryViagem.save(via);
 		return fim();
 	}

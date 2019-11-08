@@ -22,7 +22,14 @@ public class Transporte implements Serializable {
 	private Cidade destino;
 	@ManyToOne
 	private Companhia companhia;
+	private Double custoPassagem;
 	
+	public Double getCustoPassagem() {
+		return custoPassagem;
+	}
+	public void setCustoPassagem(Double custoPassagem) {
+		this.custoPassagem = custoPassagem;
+	}
 	public Companhia getCompanhia() {
 		return companhia;
 	}

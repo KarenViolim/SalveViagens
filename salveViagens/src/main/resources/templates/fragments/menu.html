@@ -52,7 +52,7 @@
               <div class="menu_section">
                 <h3>Geral</h3>
                 <ul class="nav side-menu">
-                  <li><a href="/index"><i class="fa fa-home"></i>Página Inicial</a></li>
+                  <li><a href="/"><i class="fa fa-home"></i>Página Inicial</a></li>
                   <li><a><i class="fa fa-edit"></i>Cadastros<span class="fa fa-chevron-down"></span></a>
 	                  <ul class="nav child_menu">
 	                      <li><a href="/administrativo/cidade/cadastrar">Cadastrar Cidade</a></li>
@@ -79,6 +79,12 @@
 	                    <li><a href="/administrativo/permissao/listar">Listar Permissões</a></li>
 	                    <li><a href="/administrativo/transporte/listar">Listar Transportes</a></li>
 	                    <li><a href="/administrativo/viagem/listar">Listar Viagens</a></li>
+                    </ul>
+                  </li>
+                 <li><a><i class="fa fa-desktop"></i>Relatorio<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a th:href="@{/displayBarGraph}">Vendas Por Funcionários</a></li>
+                      <li><a th:href="@{/lucro}">Relatório de lucro</a></li>
                     </ul>
                   </li>
                 </ul>

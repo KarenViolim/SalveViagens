@@ -25,7 +25,14 @@ public class Hospedagem implements Serializable {
 	@ManyToOne
 	private Cidade cidade;
 	private String foto;
+	private double custoHospedagem;
 	
+	public double getCustoHospedagem() {
+		return custoHospedagem;
+	}
+	public void setCustoHospedagem(double custoHospedagem) {
+		this.custoHospedagem = custoHospedagem;
+	}
 	public long getId() {
 		return id;
 	}

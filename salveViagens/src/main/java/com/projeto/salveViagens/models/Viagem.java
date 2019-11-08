@@ -32,7 +32,14 @@ public class Viagem implements Serializable {
 	@ManyToOne
 	private Hospedagem hospedagem;
 	private double total;
+	private double custoTotal;
 	
+	public double getCustoTotal() {
+		return custoTotal;
+	}
+	public void setCustoTotal(double custoTotal) {
+		this.custoTotal = custoTotal;
+	}
 	public double getTotal() {
 		return total;
 	}
