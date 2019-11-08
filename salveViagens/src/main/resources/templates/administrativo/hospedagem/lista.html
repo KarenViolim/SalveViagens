@@ -68,9 +68,10 @@
 								<tr>
 									<th>ID</th>
 									<th>Nome da Hospedagem</th>
-									<th>Valor Total</th>
-									<th>Valor Diária</th>
+									<th>Valor</th>
 									<th>Cidade</th>
+									<th>Foto</th>
+									<th>Custo Hospedagem</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -81,6 +82,7 @@
 									<td th:text="${hospedagem.valor}"></td>
 									<td th:text="${hospedagem.cidade.nome}"></td>
 									<td th:text="${hospedagem.foto}"></td>
+									<td th:text="${hospedagem.custoHospedagem}"></td>
 									<td><a class="btn btn-warning btn-xs"
 										th:href="@{/administrativo/hospedagem/editarHospedagem/{id}(id=${hospedagem.id})}">Editar</a>
 										<a class="btn btn-danger btn-xs"

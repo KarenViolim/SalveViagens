@@ -70,6 +70,7 @@
 									<th>Origem</th>
 									<th>Destino</th>
 									<th>Companhia</th>
+									<th>Custo Passagem</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -80,6 +81,7 @@
 									<td th:text="${transporte.origem.nome}"></td>
 									<td th:text="${transporte.destino.nome}"></td>
 									<td th:text="${transporte.companhia.nome}"></td>
+									<td th:text="${transporte.custoPassagem}"></td>
 									<td><a class="btn btn-warning btn-xs"
 										th:href="@{/administrativo/transporte/editarTransporte/{id}(id=${transporte.id})}">Editar</a>
 										<a class="btn btn-danger btn-xs"

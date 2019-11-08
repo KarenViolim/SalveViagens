@@ -68,6 +68,7 @@
 								<tr>
 									<th>ID</th>
 									<th>Forma de Pagamento</th>
+									<th>Parcelas</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -75,6 +76,7 @@
 								<tr th:each="formadepagamento : ${formadepagamento}">
 									<td th:text="${formadepagamento.id}"></td>
 									<td th:text="${formadepagamento.formaPagamento}"></td>
+									<td th:text="${formadepagamento.parcela}"></td>
 									<td><a class="btn btn-warning btn-xs"
 										th:href="@{/administrativo/formapagamento/editarFormaPagamento/{id}(id=${formadepagamento.id})}">Editar</a>
 										<a class="btn btn-danger btn-xs"

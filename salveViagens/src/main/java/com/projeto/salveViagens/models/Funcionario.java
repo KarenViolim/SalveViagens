@@ -13,7 +13,6 @@ public class Funcionario extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Double salario;
-	private Date dataInicio;
 	@ManyToOne
 	private Papeis papeis;
 	private String email;
@@ -23,12 +22,6 @@ public class Funcionario extends Pessoa implements Serializable {
 	}
 	public void setSalario(Double salario) {
 		this.salario = salario;
-	}
-	public Date getDataInicio() {
-		return dataInicio;
-	}
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
 	}
 	public Papeis getPapeis() {
 		return papeis;
