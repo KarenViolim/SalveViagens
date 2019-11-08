@@ -67,8 +67,8 @@ public class ViagemController {
 	
 	@GetMapping("/listarViagem")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("/viagem");
-		mv.addObject("viagem", repositoryViagem.findAll());
+		ModelAndView mv = new ModelAndView("/teste");
+		mv.addObject("viagens", repositoryViagem.findAll());
 		return mv;
 	}
 	
@@ -160,5 +160,7 @@ public class ViagemController {
 		ModelAndView mv = new ModelAndView("/final");
 		return mv;
 	} 
+	
+	
 }
 
