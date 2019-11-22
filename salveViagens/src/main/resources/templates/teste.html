@@ -12,32 +12,32 @@
 
 <!-- Bootstrap -->
 <link href="/vendors/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet"/>
+	rel="stylesheet" />
 <!-- Font Awesome -->
 <link href="/vendors/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet"/>
+	rel="stylesheet" />
 <!-- NProgress -->
-<link href="/vendors/nprogress/nprogress.css" rel="stylesheet"/>
+<link href="/vendors/nprogress/nprogress.css" rel="stylesheet" />
 <!-- iCheck -->
-<link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
+<link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
 <!-- Datatables -->
 <link href="/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"
-	rel="stylesheet"/>
+	rel="stylesheet" />
 <link
 	href="/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"
-	rel="stylesheet"/>
+	rel="stylesheet" />
 <link
 	href="/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"
-	rel="stylesheet"/>
+	rel="stylesheet" />
 <link
 	href="/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"
-	rel="stylesheet"/>
+	rel="stylesheet" />
 <link
 	href="/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"
-	rel="stylesheet"/>
+	rel="stylesheet" />
 
 <!-- Custom Theme Style -->
-<link href="/build/css/custom.min.css" rel="stylesheet"/>
+<link href="/build/css/custom.min.css" rel="stylesheet" />
 </head>
 
 <body class="nav-md">
@@ -56,7 +56,9 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>Exibir Viagens</h2>
+						<h2>
+							Exibir Cidades</small>
+						</h2>
 
 						<div class="clearfix"></div>
 					</div>
@@ -85,31 +87,28 @@
 									<td th:text="${v.cliente.nome}"></td>
 									<td th:text="${v.funcionario.nome}"></td>
 									<td th:text="${v.transporte.origem.nome}"></td>
-									<td th:text="${v.transporte.destino.nome}"></td>									
+									<td th:text="${v.transporte.destino.nome}"></td>
 									<td th:text="${v.hospedagem.nome}"></td>
 									<td th:text="${v.hospedagem.valor * v.totalPassageiros}"></td>
 									<td th:text="${v.transporte.companhia.nome}"></td>
-									<td th:text="${v.transporte.valorPassagem * v.totalPassageiros}"></td>
-									<td th:text="${v.total}"></td>							
+									<td
+										th:text="${v.transporte.valorPassagem * v.totalPassageiros}"></td>
+									<td th:text="${v.total}"></td>
 								</tr>
 							</tbody>
 						</table>
-						<div class="form-group">
-							<div class="col-md-2">
-								<a class="form-control input-md btn btn-primary"
-									href="/administrativo/funcionario/cadastrar">Adicionar</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- /page content -->
 
 	<!-- footer content -->
 	<div th:replace="~{fragments/footer :: footer}"></div>
 	<!-- /footer content -->
+	</div>
 
 	<!-- jQuery -->
 	<script src="/vendors/jquery/dist/jquery.min.js"></script>

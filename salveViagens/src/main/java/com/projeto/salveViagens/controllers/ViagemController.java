@@ -158,6 +158,7 @@ public class ViagemController {
 	@PostMapping("/fim")
 	public ModelAndView fim() {
 		ModelAndView mv = new ModelAndView("/final");
+		mv.addObject("viagens", repositoryViagem.findAll());
 		return mv;
 	} 
 	
